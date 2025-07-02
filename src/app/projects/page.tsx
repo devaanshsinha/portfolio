@@ -1,4 +1,5 @@
 import PortfolioLayout from '../components/PortfolioLayout';
+import { HiCog, HiCode, HiOfficeBuilding } from 'react-icons/hi';
 
 export default function Projects() {
   const projects = [
@@ -75,17 +76,17 @@ export default function Projects() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl mb-2">🔧</div>
+              <HiCog className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
               <h4 className="font-semibold text-[var(--console-primary)] mb-2">System Programming</h4>
               <p className="text-sm text-[var(--console-text-dim)]">Low-level C programming, file systems, shell development</p>
             </div>
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl mb-2">🚀</div>
+              <HiCode className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
               <h4 className="font-semibold text-[var(--console-primary)] mb-2">Full-Stack Applications</h4>
               <p className="text-sm text-[var(--console-text-dim)]">End-to-end web applications with modern frameworks</p>
             </div>
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl mb-2">🏥</div>
+              <HiOfficeBuilding className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
               <h4 className="font-semibold text-[var(--console-primary)] mb-2">Domain-Specific Solutions</h4>
               <p className="text-sm text-[var(--console-text-dim)]">Healthcare systems, business applications</p>
             </div>

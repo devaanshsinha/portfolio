@@ -1,4 +1,5 @@
 import PortfolioLayout from '../components/PortfolioLayout';
+import { HiDownload, HiEye } from 'react-icons/hi';
 
 export default function About() {
   return (
@@ -30,7 +31,7 @@ export default function About() {
               download="Devaansh_Sinha_Resume.pdf"
               className="px-6 py-3 bg-[var(--console-primary)] text-[var(--console-bg)] font-bold rounded-lg hover:bg-[var(--console-secondary)] transition-colors flex items-center gap-2"
             >
-              <span>📄</span>
+              <HiDownload className="text-lg" />
               Download Resume
             </a>
             <a 
@@ -39,7 +40,7 @@ export default function About() {
               rel="noopener noreferrer"
               className="px-6 py-3 bg-[var(--console-bg)] border border-[var(--console-primary)] text-[var(--console-primary)] font-bold rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-colors flex items-center gap-2"
             >
-              <span>👀</span>
+              <HiEye className="text-lg" />
               View Resume
             </a>
           </div>

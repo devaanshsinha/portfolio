@@ -1,4 +1,6 @@
 import PortfolioLayout from '../components/PortfolioLayout';
+import { HiMail, HiPhone, HiLocationMarker, HiAcademicCap, HiBriefcase } from 'react-icons/hi';
+import { FaLinkedin, FaGithub, FaFilePdf } from 'react-icons/fa';
 
 export default function Contact() {
   return (
@@ -23,7 +25,7 @@ export default function Contact() {
                   href="mailto:sinhadevaansh@gmail.com" 
                   className="flex items-center gap-3 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)] hover:border-[var(--console-primary)]"
                 >
-                  <span className="text-2xl">✉</span>
+                  <HiMail className="text-2xl" />
                   <div>
                     <div className="font-semibold">Email</div>
                     <div className="text-sm text-[var(--console-text-dim)]">sinhadevaansh@gmail.com</div>
@@ -34,7 +36,7 @@ export default function Contact() {
                   href="tel:6083350973" 
                   className="flex items-center gap-3 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)] hover:border-[var(--console-primary)]"
                 >
-                  <span className="text-2xl">📱</span>
+                  <HiPhone className="text-2xl" />
                   <div>
                     <div className="font-semibold">Phone</div>
                     <div className="text-sm text-[var(--console-text-dim)]">(608) 335-0973</div>
@@ -42,7 +44,7 @@ export default function Contact() {
                 </a>
                 
                 <div className="flex items-center gap-3 text-[var(--console-text)] p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-                  <span className="text-2xl">📍</span>
+                  <HiLocationMarker className="text-2xl text-[var(--console-secondary)]" />
                   <div>
                     <div className="font-semibold text-[var(--console-secondary)]">Location</div>
                     <div className="text-sm text-[var(--console-text-dim)]">Madison, WI</div>
@@ -61,7 +63,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)] hover:border-[var(--console-primary)]"
                 >
-                  <span className="text-2xl">💼</span>
+                  <FaLinkedin className="text-2xl" />
                   <div>
                     <div className="font-semibold">LinkedIn</div>
                     <div className="text-sm text-[var(--console-text-dim)]">Professional Profile</div>
@@ -74,7 +76,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)] hover:border-[var(--console-primary)]"
                 >
-                  <span className="text-2xl">⚡</span>
+                  <FaGithub className="text-2xl" />
                   <div>
                     <div className="font-semibold">GitHub</div>
                     <div className="text-sm text-[var(--console-text-dim)]">Code Portfolio</div>
@@ -87,7 +89,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)] hover:border-[var(--console-primary)]"
                 >
-                  <span className="text-2xl">📄</span>
+                  <FaFilePdf className="text-2xl" />
                   <div>
                     <div className="font-semibold">Resume</div>
                     <div className="text-sm text-[var(--console-text-dim)]">View or Download PDF</div>
@@ -103,14 +105,20 @@ export default function Contact() {
           <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">Current Status</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <h4 className="font-semibold text-[var(--console-primary)] mb-2">🎓 Education</h4>
+              <h4 className="font-semibold text-[var(--console-primary)] mb-2 flex items-center gap-2">
+                <HiAcademicCap className="text-lg" />
+                Education
+              </h4>
               <p className="text-[var(--console-text)] text-sm">
                 Senior year at UW Madison<br/>
                 Graduating May 2026
               </p>
             </div>
             <div className="p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <h4 className="font-semibold text-[var(--console-primary)] mb-2">💼 Work</h4>
+              <h4 className="font-semibold text-[var(--console-primary)] mb-2 flex items-center gap-2">
+                <HiBriefcase className="text-lg" />
+                Work
+              </h4>
               <p className="text-[var(--console-text)] text-sm">
                 Software Engineering Intern at Gemini<br/>
                 Open to new opportunities

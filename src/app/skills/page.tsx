@@ -1,4 +1,5 @@
 import PortfolioLayout from '../components/PortfolioLayout';
+import { HiCode, HiShieldCheck, HiLightningBolt } from 'react-icons/hi';
 
 export default function Skills() {
   const skillCategories = [
@@ -110,17 +111,17 @@ export default function Skills() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl mb-2">🚀</div>
+              <HiCode className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
               <h4 className="font-semibold text-[var(--console-primary)] mb-2">Full-Stack Development</h4>
               <p className="text-sm text-[var(--console-text-dim)]">End-to-end application development with modern frameworks</p>
             </div>
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl mb-2">🔒</div>
+              <HiShieldCheck className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
               <h4 className="font-semibold text-[var(--console-primary)] mb-2">Security & Data Protection</h4>
               <p className="text-sm text-[var(--console-text-dim)]">Building secure systems and protecting user data</p>
             </div>
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl mb-2">⚡</div>
+              <HiLightningBolt className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
               <h4 className="font-semibold text-[var(--console-primary)] mb-2">System Design & Scalability</h4>
               <p className="text-sm text-[var(--console-text-dim)]">Designing systems that scale to hundreds of thousands of users</p>
             </div>
