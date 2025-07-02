@@ -56,7 +56,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
             <h1 className="text-4xl md:text-6xl font-bold font-[var(--font-sans)] tracking-wider mb-2 cursor-pointer hover:opacity-80 transition-opacity">
               <span className="text-[var(--console-primary)]">DEVAANSH</span>
               <span className="text-[var(--console-secondary)]">.</span>
-              <span className="text-[var(--console-accent)]">DEV</span>
+              <span className="text-[var(--console-accent)]">TECH</span>
             </h1>
           </Link>
           <p className="text-[var(--console-text-dim)] text-sm tracking-widest">

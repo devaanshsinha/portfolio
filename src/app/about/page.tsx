@@ -48,11 +48,18 @@ export default function About() {
         {/* Education */}
         <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
           <h3 className="text-xl font-bold text-[var(--console-secondary)] mb-4">Education</h3>
-          <div className="space-y-2">
-            <h4 className="text-lg font-semibold text-[var(--console-text)]">University of Wisconsin Madison</h4>
-            <p className="text-[var(--console-text-dim)]">BS in Computer Science, Certificate in Game Design</p>
-            <p className="text-[var(--console-text-dim)]">Sept 2022 – May 2026 | GPA: 3.9/4.0</p>
-            <p className="text-[var(--console-text-dim)]">4-time Dean&apos;s List recipient</p>
+          <div className="flex items-start gap-4">
+            <div className="space-y-2 flex-1">
+              <h4 className="text-lg font-semibold text-[var(--console-text)]">University of Wisconsin Madison</h4>
+              <p className="text-[var(--console-text-dim)]">BS in Computer Science, Certificate in Game Design</p>
+              <p className="text-[var(--console-text-dim)]">Sept 2022 – May 2026 | GPA: 3.9/4.0</p>
+              <p className="text-[var(--console-text-dim)]">4-time Dean&apos;s List recipient</p>
+            </div>
+            <img 
+              src="/images/WX9DTCt5_400x400.png" 
+              alt="University of Wisconsin Madison logo"
+              className="w-24 h-24 object-contain rounded-lg border border-[var(--console-border)] bg-white p-2 flex-shrink-0"
+            />
           </div>
         </div>
       </div>
