@@ -21,12 +21,6 @@ export default function Skills() {
     }
   ];
 
-  const achievements = [
-    "4-time Dean's List recipient",
-    "GPA: 3.9/4.0",
-    "Certificate in Game Design",
-    "Employee of the month twice at University Housing"
-  ];
 
   return (
     <PortfolioLayout>
@@ -86,23 +80,6 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* Academic Achievements */}
-        <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
-          <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">
-            Academic & Personal Achievements
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {achievements.map((achievement, index) => (
-              <div 
-                key={index}
-                className="flex items-center gap-3 p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)]"
-              >
-                <span className="text-[var(--console-primary)] text-xl">★</span>
-                <span className="text-[var(--console-text)]">{achievement}</span>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Areas of Interest */}
         <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
