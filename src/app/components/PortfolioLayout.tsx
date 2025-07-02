@@ -121,7 +121,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
 
         {/* Footer */}
         <footer className="mt-8 text-center text-[var(--console-text-dim)] text-sm">
-          <p>© 2025 Devaansh | Powered by Next.js</p>
+          <p>© 2025 Devaansh</p>
         </footer>
       </div>
     </div>
