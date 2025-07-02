@@ -9,7 +9,7 @@ export default function About() {
         </h2>
         <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
           <p className="text-[var(--console-text)] leading-relaxed mb-4">
-            Hello! I'm Devaansh Sinha, a senior year Computer Science student at the University of Wisconsin Madison 
+            Hello! I&apos;m Devaansh Sinha, a senior year Computer Science student at the University of Wisconsin Madison 
             passionate about building innovative digital experiences and solving complex problems through code.
           </p>
           <p className="text-[var(--console-text)] leading-relaxed mb-4">
@@ -18,8 +18,8 @@ export default function About() {
             solutions that blend functionality with engaging user interfaces.
           </p>
           <p className="text-[var(--console-text)] leading-relaxed mb-6">
-            I've developed custom tools that serve hundreds of thousands of users, built spam detection systems, 
-            and worked on everything from NFT marketplaces to pantry management apps. I'm always excited to take 
+            I&apos;ve developed custom tools that serve hundreds of thousands of users, built spam detection systems, 
+            and worked on everything from NFT marketplaces to pantry management apps. I&apos;m always excited to take 
             on new challenges and learn cutting-edge technologies.
           </p>
           
@@ -52,7 +52,7 @@ export default function About() {
             <h4 className="text-lg font-semibold text-[var(--console-text)]">University of Wisconsin Madison</h4>
             <p className="text-[var(--console-text-dim)]">BS in Computer Science, Certificate in Game Design</p>
             <p className="text-[var(--console-text-dim)]">Sept 2022 – May 2026 | GPA: 3.9/4.0</p>
-            <p className="text-[var(--console-text-dim)]">4-time Dean's List recipient</p>
+            <p className="text-[var(--console-text-dim)]">4-time Dean&apos;s List recipient</p>
           </div>
         </div>
       </div>

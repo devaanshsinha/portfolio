@@ -10,7 +10,7 @@ export default function Contact() {
         
         <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
           <p className="text-[var(--console-text)] mb-6 leading-relaxed">
-            I'm always open to discussing new opportunities, collaborating on interesting projects, 
+            I&apos;m always open to discussing new opportunities, collaborating on interesting projects, 
             or just having a conversation about technology. Feel free to reach out!
           </p>
           
@@ -121,10 +121,10 @@ export default function Contact() {
         
         {/* Call to Action */}
         <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)] text-center">
-          <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">Let's Build Something Amazing Together!</h3>
+          <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">Let&apos;s Build Something Amazing Together!</h3>
           <p className="text-[var(--console-text)] mb-6">
             Whether you have a project in mind, want to discuss opportunities, or just want to connect, 
-            I'd love to hear from you.
+            I&apos;d love to hear from you.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a 
