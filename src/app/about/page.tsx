@@ -10,18 +10,13 @@ export default function About() {
         </h2>
         <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
           <p className="text-[var(--console-text)] leading-relaxed mb-4">
-            Hello! I&apos;m Devaansh Sinha, a senior year Computer Science student at the University of Wisconsin Madison 
+            Hello! I&apos;m Devaansh Sinha, a Computer Science student at the University of Wisconsin Madison 
             passionate about building innovative digital experiences and solving complex problems through code.
           </p>
-          <p className="text-[var(--console-text)] leading-relaxed mb-4">
-            With a strong academic foundation (3.9/4.0 GPA) and hands-on experience from internships at Gemini and 
-            Bajaj Finance Direct Limited, I specialize in full-stack development, system design, and creating 
-            solutions that blend functionality with engaging user interfaces.
-          </p>
           <p className="text-[var(--console-text)] leading-relaxed mb-6">
-            I&apos;ve developed custom tools that serve hundreds of thousands of users, built spam detection systems, 
-            and worked on everything from NFT marketplaces to pantry management apps. I&apos;m always excited to take 
-            on new challenges and learn cutting-edge technologies.
+            With hands-on experience from internships at Gemini and Bajaj Finance Direct Limited, I specialize in 
+            full-stack development, system design, and security. I&apos;ve developed tools serving hundreds of thousands 
+            of users and built systems that enhance security for large-scale applications.
           </p>
           
           {/* Resume Download */}

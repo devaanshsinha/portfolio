@@ -87,8 +87,8 @@ export default function Projects() {
             </div>
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
               <HiOfficeBuilding className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
-              <h4 className="font-semibold text-[var(--console-primary)] mb-2">Domain-Specific Solutions</h4>
-              <p className="text-sm text-[var(--console-text-dim)]">Healthcare systems, business applications</p>
+              <h4 className="font-semibold text-[var(--console-primary)] mb-2">Data Management Solutions</h4>
+              <p className="text-sm text-[var(--console-text-dim)]">Database design, data processing, and management systems</p>
             </div>
           </div>
         </div>

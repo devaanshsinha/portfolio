@@ -27,18 +27,6 @@ export default function Experience() {
       ],
       technologies: ["Spring Boot", "Elasticsearch", "ID Verification", "Security", "Data Protection"]
     },
-    {
-      company: "University Housing - UW Madison",
-      position: "Cashier",
-      location: "Madison, WI",
-      duration: "Sep 2022 – May 2024",
-      achievements: [
-        "Worked as a cashier at Gordon's Dining and Events Center for 4 semesters",
-        "Earned employee of the month twice for exceptional customer service and reliability",
-        "Managed high-volume transactions during peak dining hours while maintaining accuracy"
-      ],
-      technologies: ["Customer Service", "Point of Sale Systems", "Cash Management"]
-    }
   ];
 
   return (
