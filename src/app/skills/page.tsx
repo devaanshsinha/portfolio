@@ -1,5 +1,5 @@
 import PortfolioLayout from '../components/PortfolioLayout';
-import { HiCode, HiShieldCheck, HiLightningBolt } from 'react-icons/hi';
+import { HiCode, HiShieldCheck, HiLightningBolt, HiCube } from 'react-icons/hi';
 
 export default function Skills() {
   const skillCategories = [
@@ -9,11 +9,11 @@ export default function Skills() {
     },
     { 
       category: 'Technologies', 
-      skills: ['AWS', 'Docker', 'Google Cloud Platform', 'Git', 'Hadoop', 'Spark', 'Kafka', 'PostgreSQL', 'MySQL', 'REST APIs', 'Blender'] 
+      skills: ['AWS', 'Docker', 'Google Cloud Platform', 'Git', 'Hadoop', 'Spark', 'Kafka', 'PostgreSQL', 'MySQL', 'REST APIs', 'Blockchain', 'Web3', 'NFT', 'Stripe', 'OpenAI', 'Blender'] 
     },
     { 
       category: 'Frameworks & Libraries', 
-      skills: ['Django', 'PyTorch', 'Spring Boot', 'JUnit', 'Mockito', 'Pandas', 'Elasticsearch', 'React', 'Next.js', 'CUDA'] 
+      skills: ['Django', 'PyTorch', 'Spring Boot', 'JUnit', 'Mockito', 'Pandas', 'Elasticsearch', 'React', 'Next.js', 'FastAPI', 'Prisma', 'Clerk', 'Framer Motion', 'Tailwind CSS', 'CUDA'] 
     },
     { 
       category: 'Coursework', 
@@ -73,6 +73,7 @@ export default function Skills() {
               <ul className="space-y-2 text-[var(--console-text)]">
                 <li>• Saved 10+ hours of meeting time weekly</li>
                 <li>• Built end-to-end full-stack applications</li>
+                <li>• Optimized blockchain transaction monitoring</li>
                 <li>• Implemented security and verification systems</li>
                 <li>• Designed scalable database architectures</li>
               </ul>
@@ -86,11 +87,16 @@ export default function Skills() {
           <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">
             Areas of Interest & Expertise
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
               <HiCode className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
               <h4 className="font-semibold text-[var(--console-primary)] mb-2">Full-Stack Development</h4>
               <p className="text-sm text-[var(--console-text-dim)]">End-to-end application development with modern frameworks</p>
+            </div>
+            <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
+              <HiCube className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
+              <h4 className="font-semibold text-[var(--console-primary)] mb-2">Blockchain & Web3</h4>
+              <p className="text-sm text-[var(--console-text-dim)]">NFT platforms, transaction monitoring, and decentralized applications</p>
             </div>
             <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
               <HiShieldCheck className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
