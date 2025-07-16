@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLoading } from './LoadingProvider';
 import { useState } from 'react';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { HiMenu, HiX, HiMoon, HiSun, HiCode } from 'react-icons/hi';
+import { ThemeToggle } from './ThemeToggle';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface PortfolioLayoutProps {
   children: React.ReactNode;
@@ -14,6 +16,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const { isLoading, terminalText } = useLoading();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
   
   const menuItems = [
     { id: 'about', label: 'ABOUT', icon: '▸', href: '/about' },
@@ -54,17 +57,19 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
     <div className="min-h-screen p-2 sm:p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-4 sm:mb-8 text-center">
-          <Link href="/about">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-[var(--font-sans)] tracking-wider mb-2 cursor-pointer hover:opacity-80 transition-opacity">
-              <span className="text-[var(--console-primary)]">DEVAANSH</span>
-              <span className="text-[var(--console-secondary)]">.</span>
-              <span className="text-[var(--console-accent)]">TECH</span>
+        <header className="mb-4 sm:mb-8 relative">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-[var(--font-sans)] tracking-wider mb-2">
+              <Link href="/about" className="inline-block hover:opacity-80 transition-opacity">
+                <span className="text-[var(--console-primary)]">DEVAANSH</span>
+                <span className="text-[var(--console-secondary)]">.</span>
+                <span className="text-[var(--console-accent)]">TECH</span>
+              </Link>
             </h1>
-          </Link>
-          <p className="text-[var(--console-text-dim)] text-xs sm:text-sm tracking-widest px-4">
-            SOFTWARE ENGINEER | GEMINI | UW MADISON
-          </p>
+            <p className="text-[var(--console-text-dim)] text-xs sm:text-sm tracking-widest px-4">
+              SOFTWARE ENGINEER | GEMINI | UW MADISON
+            </p>
+          </div>
         </header>
 
         {/* Main Console Container */}
@@ -112,6 +117,55 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                     </li>
                   ))}
                 </ul>
+                
+                {/* Theme Selection in Mobile Menu */}
+                <div className="mt-6 pt-6 border-t border-[var(--console-border)]">
+                  <h3 className="text-xs font-bold text-[var(--console-text-dim)] uppercase mb-3">Theme</h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    <button
+                      onClick={() => {
+                        setTheme('dark');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`p-3 rounded-lg flex flex-col items-center gap-1 transition-all ${
+                        theme === 'dark' 
+                          ? 'bg-[var(--console-primary)] text-[var(--console-bg)]' 
+                          : 'bg-[var(--console-bg-light)] text-[var(--console-text)] hover:bg-[var(--console-border)]'
+                      }`}
+                    >
+                      <HiMoon className="w-5 h-5" />
+                      <span className="text-xs">Dark</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setTheme('light');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`p-3 rounded-lg flex flex-col items-center gap-1 transition-all ${
+                        theme === 'light' 
+                          ? 'bg-[var(--console-primary)] text-[var(--console-bg)]' 
+                          : 'bg-[var(--console-bg-light)] text-[var(--console-text)] hover:bg-[var(--console-border)]'
+                      }`}
+                    >
+                      <HiSun className="w-5 h-5" />
+                      <span className="text-xs">Light</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setTheme('synthwave');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`p-3 rounded-lg flex flex-col items-center gap-1 transition-all ${
+                        theme === 'synthwave' 
+                          ? 'bg-[var(--console-primary)] text-[var(--console-bg)]' 
+                          : 'bg-[var(--console-bg-light)] text-[var(--console-text)] hover:bg-[var(--console-border)]'
+                      }`}
+                    >
+                      <HiCode className="w-5 h-5" />
+                      <span className="text-xs">Synth</span>
+                    </button>
+                  </div>
+                </div>
               </nav>
             </div>
           )}
@@ -144,6 +198,48 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                       </li>
                     ))}
                   </ul>
+                  
+                  {/* Theme Selection in Desktop Menu */}
+                  <div className="mt-6 pt-6 border-t border-[var(--console-border)]">
+                    <h3 className="text-[var(--console-primary)] font-bold mb-4 text-sm tracking-widest">
+                      THEME
+                    </h3>
+                    <div className="grid grid-cols-3 gap-2">
+                      <button
+                        onClick={() => setTheme('dark')}
+                        className={`p-3 rounded-lg flex flex-col items-center gap-1 transition-all ${
+                          theme === 'dark' 
+                            ? 'bg-[var(--console-primary)] text-[var(--console-bg)]' 
+                            : 'bg-[var(--console-bg-light)] text-[var(--console-text)] hover:bg-[var(--console-border)]'
+                        }`}
+                      >
+                        <HiMoon className="w-5 h-5" />
+                        <span className="text-xs">Dark</span>
+                      </button>
+                      <button
+                        onClick={() => setTheme('light')}
+                        className={`p-3 rounded-lg flex flex-col items-center gap-1 transition-all ${
+                          theme === 'light' 
+                            ? 'bg-[var(--console-primary)] text-[var(--console-bg)]' 
+                            : 'bg-[var(--console-bg-light)] text-[var(--console-text)] hover:bg-[var(--console-border)]'
+                        }`}
+                      >
+                        <HiSun className="w-5 h-5" />
+                        <span className="text-xs">Light</span>
+                      </button>
+                      <button
+                        onClick={() => setTheme('synthwave')}
+                        className={`p-3 rounded-lg flex flex-col items-center gap-1 transition-all ${
+                          theme === 'synthwave' 
+                            ? 'bg-[var(--console-primary)] text-[var(--console-bg)]' 
+                            : 'bg-[var(--console-bg-light)] text-[var(--console-text)] hover:bg-[var(--console-border)]'
+                        }`}
+                      >
+                        <HiCode className="w-5 h-5" />
+                        <span className="text-xs">Synth</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </nav>
 

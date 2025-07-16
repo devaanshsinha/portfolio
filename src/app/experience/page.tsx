@@ -47,7 +47,8 @@ export default function Experience() {
     <PortfolioLayout>
       <div className="space-y-6">
         <h2 className="text-xl sm:text-2xl font-bold text-[var(--console-primary)] mb-4 sm:mb-6">
-          {'< PROFESSIONAL EXPERIENCE />'}
+          <span className="hidden sm:inline">{'< PROFESSIONAL EXPERIENCE />'}</span>
+          <span className="sm:hidden">{'< EXPERIENCE />'}</span>
         </h2>
         
         <div className="space-y-6">
