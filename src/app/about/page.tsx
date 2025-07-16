@@ -1,5 +1,6 @@
 import PortfolioLayout from '../components/PortfolioLayout';
 import { HiDownload, HiEye } from 'react-icons/hi';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -51,9 +52,11 @@ export default function About() {
               <p className="text-xs sm:text-sm text-[var(--console-text-dim)]">Sept 2022 – May 2026 | GPA: 3.9/4.0</p>
               <p className="text-xs sm:text-sm text-[var(--console-text-dim)]">4-time Dean&apos;s List recipient</p>
             </div>
-            <img 
+            <Image 
               src="/images/WX9DTCt5_400x400.png" 
               alt="University of Wisconsin Madison logo"
+              width={96}
+              height={96}
               className="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-lg border border-[var(--console-border)] bg-white p-2 flex-shrink-0 self-center sm:self-start"
             />
           </div>

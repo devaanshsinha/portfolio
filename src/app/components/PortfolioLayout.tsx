@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { useLoading } from './LoadingProvider';
 import { useState } from 'react';
 import { HiMenu, HiX, HiMoon, HiSun, HiCode } from 'react-icons/hi';
-import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface PortfolioLayoutProps {
