@@ -38,18 +38,19 @@ export default function Projects() {
   return (
     <PortfolioLayout>
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-[var(--console-primary)] mb-6">
-          {'< PERSONAL & ACADEMIC PROJECTS />'}
+        <h2 className="text-lg sm:text-2xl font-bold text-[var(--console-primary)] mb-4 sm:mb-6">
+          <span className="hidden sm:inline">{'< PERSONAL & ACADEMIC PROJECTS />'}</span>
+          <span className="sm:hidden">{'< PROJECTS />'}</span>
         </h2>
         
         <div className="grid gap-6">
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)] hover:border-[var(--console-secondary)] transition-all"
+              className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)] hover:border-[var(--console-secondary)] transition-all"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                <h3 className="text-xl font-bold text-[var(--console-secondary)]">
+                <h3 className="text-lg sm:text-xl font-bold text-[var(--console-secondary)]">
                   {project.title}
                 </h3>
                 <span className="text-xs text-[var(--console-accent)] bg-[var(--console-bg)] px-3 py-1 rounded-full border border-[var(--console-accent)] mt-2 md:mt-0 self-start md:self-center">
@@ -57,7 +58,7 @@ export default function Projects() {
                 </span>
               </div>
               
-              <p className="text-[var(--console-text)] mb-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-[var(--console-text)] mb-4 leading-relaxed">
                 {project.description}
               </p>
               
@@ -76,8 +77,8 @@ export default function Projects() {
         </div>
         
         {/* Project Categories Overview */}
-        <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
-          <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">
+        <div className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)]">
+          <h3 className="text-base sm:text-lg font-bold text-[var(--console-secondary)] mb-4">
             Project Categories
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

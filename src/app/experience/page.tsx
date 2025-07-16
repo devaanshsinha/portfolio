@@ -46,7 +46,7 @@ export default function Experience() {
   return (
     <PortfolioLayout>
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-[var(--console-primary)] mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-[var(--console-primary)] mb-4 sm:mb-6">
           {'< PROFESSIONAL EXPERIENCE />'}
         </h2>
         
@@ -54,21 +54,21 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <div 
               key={index}
-              className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)] hover:border-[var(--console-secondary)] transition-all"
+              className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)] hover:border-[var(--console-secondary)] transition-all"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-[var(--console-secondary)] mb-1">
+                  <h3 className="text-lg sm:text-xl font-bold text-[var(--console-secondary)] mb-1">
                     {exp.position}
                   </h3>
-                  <h4 className="text-lg font-semibold text-[var(--console-accent)]">
+                  <h4 className="text-base sm:text-lg font-semibold text-[var(--console-accent)]">
                     {exp.company}
                   </h4>
                 </div>
-                <div className="text-right mt-2 md:mt-0">
-                  <p className="text-[var(--console-text-dim)] text-sm">{exp.location}</p>
+                <div className="text-left md:text-right mt-2 md:mt-0">
+                  <p className="text-[var(--console-text-dim)] text-xs sm:text-sm">{exp.location}</p>
                   {exp.duration && (
-                    <p className="text-[var(--console-text-dim)] text-sm font-semibold">{exp.duration}</p>
+                    <p className="text-[var(--console-text-dim)] text-xs sm:text-sm font-semibold">{exp.duration}</p>
                   )}
                 </div>
               </div>

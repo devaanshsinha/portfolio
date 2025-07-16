@@ -25,7 +25,7 @@ export default function Skills() {
   return (
     <PortfolioLayout>
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-[var(--console-primary)] mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-[var(--console-primary)] mb-4 sm:mb-6">
           {'< SKILLS & EXPERTISE />'}
         </h2>
         
@@ -34,16 +34,16 @@ export default function Skills() {
           {skillCategories.map((group) => (
             <div 
               key={group.category}
-              className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]"
+              className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)]"
             >
-              <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">
+              <h3 className="text-base sm:text-lg font-bold text-[var(--console-secondary)] mb-3 sm:mb-4">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
                   <span 
                     key={skill}
-                    className="px-3 py-1 bg-[var(--console-bg)] rounded text-sm text-[var(--console-text)] border border-[var(--console-border)] hover:border-[var(--console-primary)] transition-colors"
+                    className="px-2 sm:px-3 py-1 bg-[var(--console-bg)] rounded text-xs sm:text-sm text-[var(--console-text)] border border-[var(--console-border)] hover:border-[var(--console-primary)] transition-colors"
                   >
                     {skill}
                   </span>
@@ -54,8 +54,8 @@ export default function Skills() {
         </div>
 
         {/* Professional Experience Highlights */}
-        <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
-          <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">
+        <div className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)]">
+          <h3 className="text-base sm:text-lg font-bold text-[var(--console-secondary)] mb-3 sm:mb-4">
             Professional Experience Highlights
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

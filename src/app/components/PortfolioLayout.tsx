@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLoading } from './LoadingProvider';
+import { useState } from 'react';
+import { HiMenu, HiX } from 'react-icons/hi';
 
 interface PortfolioLayoutProps {
   children: React.ReactNode;
@@ -11,6 +13,7 @@ interface PortfolioLayoutProps {
 export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const { isLoading, terminalText } = useLoading();
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const menuItems = [
     { id: 'about', label: 'ABOUT', icon: '▸', href: '/about' },
@@ -48,18 +51,18 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-8">
+    <div className="min-h-screen p-2 sm:p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-8 text-center">
+        <header className="mb-4 sm:mb-8 text-center">
           <Link href="/about">
-            <h1 className="text-4xl md:text-6xl font-bold font-[var(--font-sans)] tracking-wider mb-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-[var(--font-sans)] tracking-wider mb-2 cursor-pointer hover:opacity-80 transition-opacity">
               <span className="text-[var(--console-primary)]">DEVAANSH</span>
               <span className="text-[var(--console-secondary)]">.</span>
               <span className="text-[var(--console-accent)]">TECH</span>
             </h1>
           </Link>
-          <p className="text-[var(--console-text-dim)] text-sm tracking-widest">
+          <p className="text-[var(--console-text-dim)] text-xs sm:text-sm tracking-widest px-4">
             SOFTWARE ENGINEER | GEMINI | UW MADISON
           </p>
         </header>
@@ -67,22 +70,57 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
         {/* Main Console Container */}
         <div className="bg-[var(--console-bg-light)] rounded-lg border-2 border-[var(--console-border)] shadow-2xl overflow-hidden">
           {/* Console Header Bar */}
-          <div className="bg-[var(--console-border)] px-4 py-2 flex items-center justify-between">
+          <div className="bg-[var(--console-border)] px-3 sm:px-4 py-2 flex items-center justify-between">
             <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-red-500"></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-green-500"></div>
             </div>
-            <div className="text-xs text-[var(--console-text-dim)]">
+            <div className="text-xs text-[var(--console-text-dim)] hidden sm:block">
               PORTFOLIO_SYSTEM_v1.0
             </div>
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-1 text-[var(--console-text)]"
+            >
+              {isMobileMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            </button>
           </div>
 
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden bg-[var(--console-bg)] border-b border-[var(--console-border)]">
+              <nav className="p-4">
+                <ul className="space-y-2">
+                  {menuItems.map((item) => (
+                    <li key={item.id}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 text-sm
+                          ${getActiveSection() === item.id 
+                            ? 'bg-[var(--console-primary)] text-[var(--console-bg)] font-bold' 
+                            : 'bg-[var(--console-bg-light)] hover:bg-[var(--console-border)] text-[var(--console-text)]'
+                          }`}
+                      >
+                        <span className={getActiveSection() === item.id ? 'rotate-90' : ''}>
+                          {item.icon}
+                        </span>
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          )}
+
           {/* Console Content */}
-          <div className="p-6 md:p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-              {/* Navigation Menu */}
-              <nav className="lg:col-span-1">
+          <div className="p-3 sm:p-6 md:p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6">
+              {/* Desktop Navigation Menu */}
+              <nav className="hidden lg:block lg:col-span-1">
                 <div className="bg-[var(--console-bg)] rounded-lg p-4 border border-[var(--console-border)]">
                   <h3 className="text-[var(--console-primary)] font-bold mb-4 text-sm tracking-widest">
                     MAIN MENU
@@ -92,7 +130,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                       <li key={item.id}>
                         <Link
                           href={item.href}
-                          className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 block
+                          className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3
                             ${getActiveSection() === item.id 
                               ? 'bg-[var(--console-primary)] text-[var(--console-bg)] font-bold' 
                               : 'hover:bg-[var(--console-bg-light)] text-[var(--console-text)]'
@@ -111,7 +149,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
 
               {/* Content Area */}
               <main className="lg:col-span-3">
-                <div className="bg-[var(--console-bg)] rounded-lg p-6 border border-[var(--console-border)] min-h-[400px]">
+                <div className="bg-[var(--console-bg)] rounded-lg p-4 sm:p-6 border border-[var(--console-border)] min-h-[400px]">
                   {children}
                 </div>
               </main>
@@ -120,7 +158,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
         </div>
 
         {/* Footer */}
-        <footer className="mt-8 text-center text-[var(--console-text-dim)] text-sm">
+        <footer className="mt-4 sm:mt-8 text-center text-[var(--console-text-dim)] text-xs sm:text-sm pb-4">
           <p>© 2025 Devaansh</p>
         </footer>
       </div>
