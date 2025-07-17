@@ -5,7 +5,9 @@ import { usePathname } from 'next/navigation';
 import { useLoading } from './LoadingProvider';
 import { useState } from 'react';
 import { HiMenu, HiX, HiMoon, HiSun, HiCode } from 'react-icons/hi';
+import { IoGameController } from 'react-icons/io5';
 import { useTheme } from '../contexts/ThemeContext';
+import SnakeGame from './SnakeGame';
 
 interface PortfolioLayoutProps {
   children: React.ReactNode;
@@ -15,6 +17,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const { isLoading, terminalText } = useLoading();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showSnakeGame, setShowSnakeGame] = useState(false);
   const { theme, setTheme } = useTheme();
   
   const menuItems = [
@@ -165,6 +168,21 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                     </button>
                   </div>
                 </div>
+                
+                {/* Games Section in Mobile Menu */}
+                <div className="mt-6 pt-6 border-t border-[var(--console-border)]">
+                  <h3 className="text-xs font-bold text-[var(--console-text-dim)] uppercase mb-3">Games</h3>
+                  <button
+                    onClick={() => {
+                      setShowSnakeGame(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full px-4 py-3 bg-[var(--console-bg-light)] text-[var(--console-text)] rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-all flex items-center gap-3"
+                  >
+                    <IoGameController className="w-5 h-5" />
+                    <span>Play Snake</span>
+                  </button>
+                </div>
               </nav>
             </div>
           )}
@@ -239,6 +257,20 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                       </button>
                     </div>
                   </div>
+                  
+                  {/* Games Section in Desktop Menu */}
+                  <div className="mt-6 pt-6 border-t border-[var(--console-border)]">
+                    <h3 className="text-[var(--console-primary)] font-bold mb-4 text-sm tracking-widest">
+                      GAMES
+                    </h3>
+                    <button
+                      onClick={() => setShowSnakeGame(true)}
+                      className="w-full px-4 py-3 bg-[var(--console-bg-light)] text-[var(--console-text)] rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-all flex items-center gap-3"
+                    >
+                      <IoGameController className="w-5 h-5" />
+                      <span>Play Snake</span>
+                    </button>
+                  </div>
                 </div>
               </nav>
 
@@ -257,6 +289,9 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
           <p>© 2025 Devaansh</p>
         </footer>
       </div>
+      
+      {/* Snake Game Modal */}
+      {showSnakeGame && <SnakeGame onClose={() => setShowSnakeGame(false)} />}
     </div>
   );
 }
