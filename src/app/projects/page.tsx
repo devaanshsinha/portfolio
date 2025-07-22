@@ -1,19 +1,30 @@
 import PortfolioLayout from '../components/PortfolioLayout';
-import { HiCog, HiCode, HiOfficeBuilding, HiHeart } from 'react-icons/hi';
+import Link from 'next/link';
+import { HiCog, HiCode, HiOfficeBuilding, HiHeart, HiArrowRight } from 'react-icons/hi';
+
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  category: string;
+  detailsLink?: string;
+}
 
 export default function Projects() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "GlycoNova",
       description: "A comprehensive Type 1 diabetes management platform built with Next.js and TypeScript. Features data processing and analysis for Dexcom G6/G7 & Omnipod 5 devices, intelligent glucose pattern recognition, personalized insulin recommendations, and secure data handling. Built by a T1D veteran with 16 years of experience in collaboration with endocrinologists, providing free access to everyone.",
       technologies: ["Next.js", "TypeScript", "PostgreSQL", "Clerk", "Framer Motion", "Tailwind CSS", "Data Visualization", "Healthcare Analytics"],
-      category: "Healthcare Platform"
+      category: "Healthcare Platform",
+      detailsLink: "/projects/glyconova"
     },
     {
       title: "ShelfWise",
       description: "A comprehensive pantry management app utilizing Python, OpenCV, and Tesseract for receipt scanning, FastAPI and Prisma for backend, and React/TypeScript for frontend. Integrated NLP-based assistant for hands-free interaction, optimizing food tracking, recipe suggestions, and reducing waste.",
       technologies: ["Python", "OpenCV", "Tesseract", "FastAPI", "Prisma", "React", "TypeScript", "OpenAI"],
-      category: "Full-Stack Application"
+      category: "Full-Stack Application",
+      detailsLink: "/projects/shelfwise"
     },
     {
       title: "Custom C Shell",
@@ -62,7 +73,7 @@ export default function Projects() {
                 {project.description}
               </p>
               
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
                   <span 
                     key={tech}
@@ -72,6 +83,16 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+              
+              {project.detailsLink && (
+                <Link 
+                  href={project.detailsLink}
+                  className="inline-flex items-center gap-2 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors font-semibold"
+                >
+                  View Project Details
+                  <HiArrowRight />
+                </Link>
+              )}
             </div>
           ))}
         </div>
