@@ -28,7 +28,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const getActiveSection = () => {
     if (pathname === '/' || pathname === '/about') return 'about';
     if (pathname === '/experience') return 'experience';
-    if (pathname === '/projects') return 'projects';
+    if (pathname === '/projects' || pathname.startsWith('/projects/')) return 'projects';
     if (pathname === '/skills') return 'skills';
     if (pathname === '/contact') return 'contact';
     return 'about';
