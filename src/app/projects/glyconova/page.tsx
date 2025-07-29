@@ -194,7 +194,7 @@ export default function GlycoNova() {
             Visit Live Site
           </a>
           <a 
-            href="https://github.com/yourusername/glyconova" 
+            href="https://github.com/devaanshsinha/glyconova" 
             target="_blank" 
             rel="noopener noreferrer"
             className="px-6 py-3 bg-[var(--console-bg)] border border-[var(--console-primary)] text-[var(--console-primary)] font-bold rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-colors flex items-center gap-2"

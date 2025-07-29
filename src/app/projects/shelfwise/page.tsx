@@ -1,6 +1,6 @@
 import PortfolioLayout from '../../components/PortfolioLayout';
 import Link from 'next/link';
-import { HiArrowLeft, HiExternalLink, HiCode } from 'react-icons/hi';
+import { HiArrowLeft, HiExternalLink } from 'react-icons/hi';
 
 export default function ShelfWise() {
   return (
@@ -208,22 +208,22 @@ export default function ShelfWise() {
         {/* Links */}
         <div className="flex gap-4 flex-wrap">
           <a 
-            href="https://github.com/yourusername/shelfwise" 
+            href="https://shelfwise-puce.vercel.app/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="px-6 py-3 bg-[var(--console-primary)] text-[var(--console-bg)] font-bold rounded-lg hover:bg-[var(--console-secondary)] transition-colors flex items-center gap-2"
           >
-            <HiCode />
-            View Source Code
+            <HiExternalLink />
+            Visit Live Site
           </a>
           <a 
-            href="https://shelfwise-demo.vercel.app" 
+            href="https://www.youtube.com/watch?v=ljWgrLuKK-s" 
             target="_blank" 
             rel="noopener noreferrer"
             className="px-6 py-3 bg-[var(--console-bg)] border border-[var(--console-primary)] text-[var(--console-primary)] font-bold rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-colors flex items-center gap-2"
           >
             <HiExternalLink />
-            Live Demo
+            Watch Demo Video
           </a>
         </div>
       </div>
