@@ -1,6 +1,6 @@
 import PortfolioLayout from '../../components/PortfolioLayout';
 import Link from 'next/link';
-import { HiArrowLeft, HiExternalLink, HiOutlineChip, HiOutlineCollection } from 'react-icons/hi';
+import { HiArrowLeft, HiExternalLink, HiOutlineChip, HiOutlineCollection, HiCode } from 'react-icons/hi';
 
 export default function Coniflow() {
   return (
@@ -187,6 +187,15 @@ export default function Coniflow() {
           >
             <HiExternalLink />
             Visit Live App
+          </a>
+          <a
+            href="https://github.com/devaanshsinha/cogniflow"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-[var(--console-bg)] border border-[var(--console-primary)] text-[var(--console-primary)] font-bold rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-colors flex items-center gap-2"
+          >
+            <HiCode />
+            View Source
           </a>
         </div>
       </div>
