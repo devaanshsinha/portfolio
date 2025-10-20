@@ -10,12 +10,14 @@ export default function Experience() {
         {
           duration: "June 2025 – Present",
           achievements: [
-            "Optimized blockchain transaction monitoring for Nifty Gateway by migrating from ERC-20 to ERC-721 focused tracking, reducing unnecessary listening activity by 70%",
-            "Reduced database size by approximately 200GB through removal of off-network NFTs, improving query performance by 40% and reducing storage costs",
-            "Decreased API call volume by 50% and reduced request payload sizes by 60% for external wallet data fetching, improving page load times by 2.5 seconds",
-            "Leading platform-wide Stripe integration upgrade affecting 15K+ monthly users to modernize payment services and introduce enhanced payment features"
+            "Redesigned Ethereum-based NFT tracking system, transitioning blockchain listener architecture to token-level activity and reducing network monitoring load by 70% while streamlining internal data management",
+            "Implemented automated removal of unsupported NFTs, reducing on-screen clutter, cutting database size by 200GB, and improving query performance by 40%",
+            "Upgraded external wallet API to eliminate redundant payloads, cutting data transfer size by 60% and improving load times for wallet-rich user accounts by 2.5 seconds",
+            "Collaborated one-on-one with a Project Manager to design and launch a Showcase section on user profiles, allowing creators to highlight pinned collections and increasing interactions with showcased items by 25%",
+            "Leading Gemini Horizon Wallet expansion with a dedicated NFT workspace that mirrors MetaMask-class management flows for ERC-721 and ERC-1155 assets",
+            "Delivered smart-contract powered NFT batch transfer for Horizon Wallet, enabling multi-token sends in a single transaction and reducing gas spend for power users"
           ],
-          technologies: ["Blockchain", "Web3", "PostgreSQL", "API Development", "Stripe", "System Architecture", "Performance Optimization"]
+          technologies: ["Blockchain", "Web3", "PostgreSQL", "API Development", "Smart Contracts", "Wallet Infrastructure", "Performance Optimization"]
         },
         {
           duration: "June 2024 – August 2024",

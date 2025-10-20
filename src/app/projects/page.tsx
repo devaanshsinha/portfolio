@@ -8,10 +8,20 @@ interface Project {
   technologies: string[];
   category: string;
   detailsLink?: string;
+  ctaLabel?: string;
+  isExternal?: boolean;
 }
 
 export default function Projects() {
   const projects: Project[] = [
+    {
+      title: "Coniflow",
+      description: "An on-chain intelligence agent that ingests Ethereum wallet activity into Supabase Postgres, enriches it with CoinGecko pricing and OpenAI embeddings, and exposes deterministic APIs, a Next.js dashboard, and chat tooling for semantic portfolio insights.",
+      technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "pgvector", "OpenAI", "CoinGecko", "Ethereum"],
+      category: "Web3 Analytics Platform",
+      detailsLink: "/projects/cogniflow",
+      ctaLabel: "View Project Details"
+    },
     {
       title: "GlycoNova",
       description: "A comprehensive Type 1 diabetes management platform built with Next.js and TypeScript. Features data processing and analysis for Dexcom G6/G7 & Omnipod 5 devices, intelligent glucose pattern recognition, personalized insulin recommendations, and secure data handling. Built by a T1D veteran with 16 years of experience in collaboration with endocrinologists, providing free access to everyone.",
@@ -88,8 +98,10 @@ export default function Projects() {
                 <Link 
                   href={project.detailsLink}
                   className="inline-flex items-center gap-2 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors font-semibold"
+                  target={project.isExternal ? "_blank" : undefined}
+                  rel={project.isExternal ? "noopener noreferrer" : undefined}
                 >
-                  View Project Details
+                  {project.ctaLabel ?? "View Project Details"}
                   <HiArrowRight />
                 </Link>
               )}
