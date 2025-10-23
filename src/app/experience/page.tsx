@@ -33,7 +33,7 @@ export default function Experience() {
                 </div>
               </div>
               
-              {exp.periods ? (
+                  {exp.periods ? (
                 // Multi-period experience (like Gemini)
                 <div className="space-y-6">
                   {exp.periods.map((period, periodIndex) => (
@@ -81,7 +81,7 @@ export default function Experience() {
                   <div className="mb-4">
                     <h5 className="text-md font-semibold text-[var(--console-primary)] mb-3">Key Achievements:</h5>
                     <ul className="space-y-2">
-                      {exp.achievements.map((achievement, achIndex) => (
+                      {(exp.achievements ?? []).map((achievement, achIndex) => (
                         <li key={achIndex} className="text-[var(--console-text)] leading-relaxed flex items-start">
                           <span className="text-[var(--console-primary)] mr-2 mt-1 text-sm">▸</span>
                           <span>{achievement}</span>
@@ -93,7 +93,7 @@ export default function Experience() {
                   <div>
                     <h5 className="text-md font-semibold text-[var(--console-primary)] mb-2">Technologies Used:</h5>
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
+                      {(exp.technologies ?? []).map((tech) => (
                         <span 
                           key={tech}
                           className="px-3 py-1 bg-[var(--console-bg)] rounded-full text-xs text-[var(--console-secondary)] border border-[var(--console-secondary)]"

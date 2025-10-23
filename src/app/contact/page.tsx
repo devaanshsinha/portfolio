@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import PortfolioLayout from '../components/PortfolioLayout';
 import { HiMail, HiPhone, HiLocationMarker, HiAcademicCap, HiBriefcase } from 'react-icons/hi';
 import { FaLinkedin, FaGithub, FaFilePdf } from 'react-icons/fa';
@@ -71,11 +72,13 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">Connect Online</h3>
               <div className="space-y-3">
                 {contactLinks.map((link) => {
-                  const iconMap: Record<string, JSX.Element> = {
+                  const iconMap = {
                     LinkedIn: <FaLinkedin className="text-2xl" />,
                     GitHub: <FaGithub className="text-2xl" />,
                     Resume: <FaFilePdf className="text-2xl" />
-                  };
+                  } satisfies Record<string, ReactElement>;
+
+                  const icon = iconMap[link.label as keyof typeof iconMap] ?? <FaLinkedin className="text-2xl" />;
 
                   return (
                     <a
@@ -85,7 +88,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-[var(--console-secondary)] hover:text-[var(--console-primary)] transition-colors p-3 bg-[var(--console-bg)] rounded border border-[var(--console-border)] hover:border-[var(--console-primary)]"
                     >
-                      {iconMap[link.label] ?? <FaLinkedin className="text-2xl" />}
+                      {icon}
                       <div>
                         <div className="font-semibold">{link.label}</div>
                         <div className="text-sm text-[var(--console-text-dim)]">{link.description}</div>
