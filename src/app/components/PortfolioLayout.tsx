@@ -59,7 +59,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
         <header className="mb-4 sm:mb-8 relative">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-[var(--font-sans)] tracking-wider mb-2">
-              <Link href="/about" className="inline-block hover:opacity-80 transition-opacity">
+              <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
                 <span className="text-[var(--console-primary)]">DEVAANSH</span>
                 <span className="text-[var(--console-secondary)]">.</span>
                 <span className="text-[var(--console-accent)]">TECH</span>

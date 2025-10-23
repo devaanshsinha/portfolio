@@ -1,50 +1,7 @@
 import PortfolioLayout from '../components/PortfolioLayout';
+import { experienceEntries, experienceMetrics } from '../data/profile';
 
 export default function Experience() {
-  const experiences = [
-    {
-      company: "Gemini",
-      position: "Software Engineering Intern",
-      location: "New York, NY",
-      periods: [
-        {
-          duration: "June 2025 – Present",
-          achievements: [
-            "Redesigned Ethereum-based NFT tracking system, transitioning blockchain listener architecture to token-level activity and reducing network monitoring load by 70% while streamlining internal data management",
-            "Implemented automated removal of unsupported NFTs, reducing on-screen clutter, cutting database size by 200GB, and improving query performance by 40%",
-            "Upgraded external wallet API to eliminate redundant payloads, cutting data transfer size by 60% and improving load times for wallet-rich user accounts by 2.5 seconds",
-            "Collaborated one-on-one with a Project Manager to design and launch a Showcase section on user profiles, allowing creators to highlight pinned collections and increasing interactions with showcased items by 25%",
-            "Leading Gemini Horizon Wallet expansion with a dedicated NFT workspace that mirrors MetaMask-class management flows for ERC-721 and ERC-1155 assets",
-            "Delivered smart-contract powered NFT batch transfer for Horizon Wallet, enabling multi-token sends in a single transaction and reducing gas spend for power users"
-          ],
-          technologies: ["Blockchain", "Web3", "PostgreSQL", "API Development", "Smart Contracts", "Wallet Infrastructure", "Performance Optimization"]
-        },
-        {
-          duration: "June 2024 – August 2024",
-          achievements: [
-            "Developed and deployed custom standup tool using Django and AWS, automating daily submissions for 800+ remote employees and saving 10+ hours of meeting time weekly",
-            "Built comprehensive team management dashboard with custom reminders, standup questions, and work analysis features, increasing manager productivity by 25%",
-            "Designed PostgreSQL database architecture managing 1,000+ standup entries with optimized queries for recaps, statistical insights, and historical data retrieval",
-            "Developed calendar management system for NFT Marketplace drops, streamlining scheduling workflow for product releases"
-          ],
-          technologies: ["Django", "AWS", "PostgreSQL", "REST APIs", "NFT"]
-        }
-      ]
-    },
-    {
-      company: "Bajaj Finance Direct Limited",
-      position: "Software Engineering Intern",
-      location: "Pune, India",
-      duration: "June 2023 – Aug 2023",
-      achievements: [
-        "Built spam detection service using Spring Boot and Elasticsearch, securing 500K+ loan applications with 95% accuracy rate through dynamic database cross-referencing",
-        "Developed ID verification system and authorization services handling 10K+ daily authentication requests for company web services",
-        "Enhanced data protection by securing 15+ open endpoints and implementing access controls, achieving 20% reduction in reported data breaches"
-      ],
-      technologies: ["Spring Boot", "Elasticsearch", "Security", "Authentication", "Data Protection"]
-    },
-  ];
-
   return (
     <PortfolioLayout>
       <div className="space-y-6">
@@ -52,9 +9,9 @@ export default function Experience() {
           <span className="hidden sm:inline">{'< PROFESSIONAL EXPERIENCE />'}</span>
           <span className="sm:hidden">{'< EXPERIENCE />'}</span>
         </h2>
-        
+
         <div className="space-y-6">
-          {experiences.map((exp, index) => (
+          {experienceEntries.map((exp, index) => (
             <div 
               key={index}
               className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)] hover:border-[var(--console-secondary)] transition-all"
@@ -158,18 +115,15 @@ export default function Experience() {
             Impact Summary
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl font-bold text-[var(--console-primary)] mb-2">800+</div>
-              <p className="text-sm text-[var(--console-text-dim)]">Remote employees served daily</p>
-            </div>
-            <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl font-bold text-[var(--console-primary)] mb-2">500K+</div>
-              <p className="text-sm text-[var(--console-text-dim)]">Loan applications secured</p>
-            </div>
-            <div className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]">
-              <div className="text-2xl font-bold text-[var(--console-primary)] mb-2">20%</div>
-              <p className="text-sm text-[var(--console-text-dim)]">Reduction in data breaches</p>
-            </div>
+            {experienceMetrics.map(metric => (
+              <div
+                key={metric.label}
+                className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]"
+              >
+                <div className="text-2xl font-bold text-[var(--console-primary)] mb-2">{metric.value}</div>
+                <p className="text-sm text-[var(--console-text-dim)]">{metric.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

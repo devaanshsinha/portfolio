@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.devaansh.tech/</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/about</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/experience</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/projects</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/projects/cogniflow</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/projects/glyconova</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/projects/shelfwise</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/skills</loc>
+  </url>
+  <url>
+    <loc>https://www.devaansh.tech/contact</loc>
+  </url>
+</urlset>
