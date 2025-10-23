@@ -2,7 +2,7 @@ import PortfolioLayout from '../../components/PortfolioLayout';
 import Link from 'next/link';
 import { HiArrowLeft, HiExternalLink, HiOutlineChip, HiOutlineCollection, HiCode } from 'react-icons/hi';
 
-export default function Coniflow() {
+export default function Cogniflow() {
   return (
     <PortfolioLayout>
       <div className="space-y-6">
@@ -18,7 +18,7 @@ export default function Coniflow() {
         {/* Project Header */}
         <div className="border-b border-[var(--console-border)] pb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-[var(--console-primary)] mb-2">
-            Coniflow
+            Cogniflow
           </h1>
           <p className="text-lg text-[var(--console-secondary)]">
             On-chain Intelligence Agent & Portfolio Analytics Platform
@@ -29,7 +29,7 @@ export default function Coniflow() {
         <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)] space-y-4">
           <h2 className="text-xl font-bold text-[var(--console-secondary)]">Overview</h2>
           <p className="text-[var(--console-text)] leading-relaxed">
-            Coniflow ingests live Ethereum wallet activity, normalizes it inside Supabase Postgres, enriches each transfer
+            Cogniflow ingests live Ethereum wallet activity, normalizes it inside Supabase Postgres, enriches each transfer
             with CoinGecko pricing and OpenAI embeddings, and exposes the insights through a production-ready Next.js
             dashboard and deterministic API surface. The platform is designed so LLM tooling can safely orchestrate named SQL
             queries and semantic search without ad-hoc code execution.
@@ -37,7 +37,7 @@ export default function Coniflow() {
           <p className="text-[var(--console-text)] leading-relaxed">
             The MVP ships a resilient ingestion worker, typed REST APIs, a pgvector-powered semantic search layer, and a UI
             that surfaces portfolio summaries, transfers, USD valuations, and chat-style analytics. It is deployed on Vercel
-            (`coniflow-web.vercel.app`) with cron-ready ingestion endpoints.
+            (`cogniflow-web.vercel.app`) with cron-ready ingestion endpoints.
           </p>
         </div>
 
@@ -154,7 +154,7 @@ export default function Coniflow() {
             <MetricCard value="3" label="Automated jobs (ingestion, pricing, embeddings) deployable via cron" />
           </div>
           <p className="text-sm text-[var(--console-text-dim)]">
-            Coniflow has been validated against Sepolia and mainnet wallets, ensuring deterministic ingestion, pricing parity, and semantic insights across diverse token flows.
+            Cogniflow has been validated against Sepolia and mainnet wallets, ensuring deterministic ingestion, pricing parity, and semantic insights across diverse token flows.
           </p>
         </div>
 
@@ -180,7 +180,7 @@ export default function Coniflow() {
         {/* Links */}
         <div className="flex gap-4 flex-wrap">
           <a
-            href="https://coniflow-web.vercel.app"
+            href="https://cogniflow-web.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-[var(--console-primary)] text-[var(--console-bg)] font-bold rounded-lg hover:bg-[var(--console-secondary)] transition-colors flex items-center gap-2"

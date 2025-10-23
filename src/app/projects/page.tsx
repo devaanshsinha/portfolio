@@ -15,7 +15,7 @@ interface Project {
 export default function Projects() {
   const projects: Project[] = [
     {
-      title: "Coniflow",
+      title: "Cogniflow",
       description: "An on-chain intelligence agent that ingests Ethereum wallet activity into Supabase Postgres, enriches it with CoinGecko pricing and OpenAI embeddings, and exposes deterministic APIs, a Next.js dashboard, and chat tooling for semantic portfolio insights.",
       technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "pgvector", "OpenAI", "CoinGecko", "Ethereum"],
       category: "Web3 Analytics Platform",
