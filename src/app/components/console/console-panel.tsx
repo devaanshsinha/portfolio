@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
@@ -34,7 +34,7 @@ const panelVariants = cva(
   }
 );
 
-type MotionDivProps = React.ComponentProps<typeof motion.div>;
+type MotionDivProps = HTMLMotionProps<"div">;
 
 export interface ConsolePanelProps
   extends Omit<MotionDivProps, "className">,

@@ -1,25 +1,23 @@
 'use client';
 
 import * as React from "react";
-import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
 export interface ConsoleHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level?: 2 | 3 | 4;
   label?: string;
-  animate?: boolean;
 }
 
-const headingComponents = {
-  2: motion.h2,
-  3: motion.h3,
-  4: motion.h4,
-} as const;
+const headingComponents: Record<2 | 3 | 4, "h2" | "h3" | "h4"> = {
+  2: "h2",
+  3: "h3",
+  4: "h4",
+};
 
 export const ConsoleHeading = React.forwardRef<HTMLHeadingElement, ConsoleHeadingProps>(
-  ({ className, level = 2, label, children, animate = true, ...props }, ref) => {
-    const Component = headingComponents[level] ?? headingComponents[2];
+  ({ className, level = 2, label, children, ...props }, ref) => {
+    const Component = headingComponents[level] ?? "h2";
 
     return (
       <Component
@@ -31,9 +29,6 @@ export const ConsoleHeading = React.forwardRef<HTMLHeadingElement, ConsoleHeadin
           level === 4 && "text-base sm:text-lg text-[var(--console-accent)]",
           className
         )}
-        initial={animate ? { opacity: 0, y: 4 } : undefined}
-        animate={animate ? { opacity: 1, y: 0 } : undefined}
-        transition={animate ? { duration: 0.2, ease: "easeOut" } : undefined}
         {...props}
       >
         {label ?? children}

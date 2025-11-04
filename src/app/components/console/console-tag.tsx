@@ -1,11 +1,11 @@
 'use client';
 
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
-export interface ConsoleTagProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface ConsoleTagProps extends Omit<HTMLMotionProps<"span">, "ref"> {
   tone?: "primary" | "secondary" | "neutral" | "accent";
 }
 

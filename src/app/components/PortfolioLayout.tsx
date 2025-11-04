@@ -16,7 +16,6 @@ import {
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ConsoleHeading } from './console/console-heading';
 import { ConsolePanel } from './console/console-panel';
-import { useLoading } from './LoadingProvider';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface PortfolioLayoutProps {
@@ -38,7 +37,6 @@ const windowIndicators = [
 ];
 
 export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
-  const { isLoading, terminalText } = useLoading();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -66,30 +64,6 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const handleThemeChange = (value: ThemeMode) => {
     setTheme(value);
   };
-
-  if (isLoading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="text-center">
-          {terminalText ? (
-            <div className="mb-4 text-2xl font-mono text-[var(--console-primary)]">
-              {terminalText}
-              <span className="animate-pulse">_</span>
-            </div>
-          ) : null}
-          <div className="mt-8 flex justify-center gap-2">
-            {windowIndicators.map(({ color }, index) => (
-              <div
-                key={color}
-                className={`h-3 w-3 rounded-full ${color} animate-bounce`}
-                style={{ animationDelay: `${index * 150}ms` }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen p-2 sm:p-4 md:p-8">
@@ -174,7 +148,6 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                   <ConsoleHeading
                     level={3}
                     className="mb-3 text-xs tracking-[0.18em] text-[var(--console-text-dim)]"
-                    animate={false}
                   >
                     THEME
                   </ConsoleHeading>
@@ -222,7 +195,6 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                   <ConsoleHeading
                     level={3}
                     className="mb-4 text-sm tracking-[0.18em] text-[var(--console-primary)]"
-                    animate={false}
                   >
                     MAIN MENU
                   </ConsoleHeading>
@@ -261,7 +233,6 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                     <ConsoleHeading
                       level={3}
                       className="mb-4 text-sm tracking-[0.18em] text-[var(--console-primary)]"
-                      animate={false}
                     >
                       THEME
                     </ConsoleHeading>

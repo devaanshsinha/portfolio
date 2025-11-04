@@ -7,10 +7,11 @@ import { cn } from "@/lib/utils";
 import { ConsoleHeading } from "./console-heading";
 import { ConsolePanel, type ConsolePanelProps } from "./console-panel";
 
-interface ConsoleSectionProps extends ConsolePanelProps {
+interface ConsoleSectionProps extends Omit<ConsolePanelProps, "children"> {
   title?: string;
   titleLevel?: 2 | 3 | 4;
   titleClassName?: string;
+  children?: React.ReactNode;
 }
 
 export const ConsoleSection = React.forwardRef<HTMLDivElement, ConsoleSectionProps>(
