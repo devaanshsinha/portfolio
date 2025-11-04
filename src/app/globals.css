@@ -3,15 +3,15 @@
 
 /* Dark Theme (Default) */
 :root, [data-theme='dark'] {
-  --console-bg: #0a0e1a;
-  --console-bg-light: #141b2d;
-  --console-primary: #00ff9f;
-  --console-secondary: #00d4ff;
-  --console-accent: #ff00ff;
-  --console-text: #e0e0e0;
-  --console-text-dim: #8a8a8a;
-  --console-border: #2a3f5f;
-  --console-glow: rgba(0, 255, 159, 0.5);
+  --console-bg: #050505;
+  --console-bg-light: #0e0e0e;
+  --console-primary: #00ff9d;
+  --console-secondary: #ffb347;
+  --console-accent: #ff00d4;
+  --console-text: #f2f2f2;
+  --console-text-dim: #9a9a9a;
+  --console-border: #1c1c1c;
+  --console-glow: rgba(0, 255, 157, 0.4);
   
   /* Theme variables for components */
   --theme-bg: var(--console-bg);
@@ -107,9 +107,10 @@ body {
 /* Dark theme gradient */
 [data-theme='dark'] body {
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(0, 255, 159, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 15% 20%, rgba(0, 255, 157, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 85% 30%, rgba(255, 179, 71, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 40% 85%, rgba(255, 0, 212, 0.14) 0%, transparent 55%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(10, 10, 10, 0.4) 45%, rgba(0, 0, 0, 0.85) 100%);
 }
 
 /* Light theme gradient */
