@@ -1,74 +1,72 @@
 import PortfolioLayout from '../components/PortfolioLayout';
+import { ConsoleHeading } from '../components/console/console-heading';
+import { ConsolePanel } from '../components/console/console-panel';
+import { ConsoleTag } from '../components/console/console-tag';
 import { experienceEntries, experienceMetrics } from '../data/profile';
 
 export default function Experience() {
   return (
     <PortfolioLayout>
       <div className="space-y-6">
-        <h2 className="text-xl sm:text-2xl font-bold text-[var(--console-primary)] mb-4 sm:mb-6">
+        <ConsoleHeading level={2} className="mb-4 sm:mb-6">
           <span className="hidden sm:inline">{'< PROFESSIONAL EXPERIENCE />'}</span>
           <span className="sm:hidden">{'< EXPERIENCE />'}</span>
-        </h2>
+        </ConsoleHeading>
 
         <div className="space-y-6">
-          {experienceEntries.map((exp, index) => (
-            <div 
-              key={index}
-              className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)] hover:border-[var(--console-secondary)] transition-all"
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+          {experienceEntries.map((exp) => (
+            <ConsolePanel key={exp.company} interactive>
+              <div className="mb-4 flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[var(--console-secondary)] mb-1">
+                  <ConsoleHeading level={3} className="mb-1 text-lg text-[var(--console-secondary)] sm:text-xl">
                     {exp.position}
-                  </h3>
-                  <h4 className="text-base sm:text-lg font-semibold text-[var(--console-accent)]">
+                  </ConsoleHeading>
+                  <ConsoleHeading level={4} className="text-base text-[var(--console-accent)] sm:text-lg">
                     {exp.company}
-                  </h4>
+                  </ConsoleHeading>
                 </div>
-                <div className="text-left md:text-right mt-2 md:mt-0">
-                  <p className="text-[var(--console-text-dim)] text-xs sm:text-sm">{exp.location}</p>
-                  {exp.duration && (
-                    <p className="text-[var(--console-text-dim)] text-xs sm:text-sm font-semibold">{exp.duration}</p>
-                  )}
+                <div className="mt-2 text-left text-xs text-[var(--console-text-dim)] md:mt-0 md:text-right sm:text-sm">
+                  <p>{exp.location}</p>
+                  {exp.duration && <p className="font-semibold">{exp.duration}</p>}
                 </div>
               </div>
-              
-                  {exp.periods ? (
-                // Multi-period experience (like Gemini)
+
+              {exp.periods ? (
                 <div className="space-y-6">
-                  {exp.periods.map((period, periodIndex) => (
-                    <div key={periodIndex} className="border-l-2 border-[var(--console-accent)] pl-4 ml-2">
-                      <div className="flex justify-between items-center mb-3">
-                        <h5 className="text-md font-semibold text-[var(--console-primary)]">
-                          {periodIndex === 0 ? '2025' : '2024'}
-                        </h5>
-                        <span className="text-sm text-[var(--console-text-dim)] font-medium">
+                  {exp.periods.map((period, index) => (
+                    <div key={`${period.duration}-${index}`} className="ml-2 border-l-2 border-[var(--console-accent)] pl-4">
+                      <div className="mb-3 flex items-center justify-between">
+                        <h5 className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--console-primary)]">
                           {period.duration}
+                        </h5>
+                        <span className="text-xs font-medium text-[var(--console-text-dim)]">
+                          {index === 0 ? '2025' : '2024'}
                         </span>
                       </div>
-                      
+
                       <div className="mb-4">
-                        <h6 className="text-sm font-semibold text-[var(--console-primary)] mb-2">Key Achievements:</h6>
-                        <ul className="space-y-1">
-                          {period.achievements.map((achievement, achIndex) => (
-                            <li key={achIndex} className="text-[var(--console-text)] leading-relaxed flex items-start text-sm">
-                              <span className="text-[var(--console-primary)] mr-2 mt-1 text-xs">▸</span>
+                        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--console-primary)]">
+                          Key Achievements
+                        </p>
+                        <ul className="space-y-2 text-sm leading-relaxed text-[var(--console-text)]">
+                          {period.achievements.map((achievement) => (
+                            <li key={achievement} className="flex items-start gap-2">
+                              <span className="mt-1 text-xs text-[var(--console-primary)]">▸</span>
                               <span>{achievement}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                      
+
                       <div>
-                        <h6 className="text-sm font-semibold text-[var(--console-primary)] mb-2">Technologies Used:</h6>
+                        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--console-primary)]">
+                          Technologies Used
+                        </p>
                         <div className="flex flex-wrap gap-2">
                           {period.technologies.map((tech) => (
-                            <span 
-                              key={tech}
-                              className="px-2 py-1 bg-[var(--console-bg)] rounded-full text-xs text-[var(--console-secondary)] border border-[var(--console-secondary)]"
-                            >
+                            <ConsoleTag key={tech} tone="secondary">
                               {tech}
-                            </span>
+                            </ConsoleTag>
                           ))}
                         </div>
                       </div>
@@ -76,56 +74,52 @@ export default function Experience() {
                   ))}
                 </div>
               ) : (
-                // Single period experience (like Bajaj Finance)
                 <>
                   <div className="mb-4">
-                    <h5 className="text-md font-semibold text-[var(--console-primary)] mb-3">Key Achievements:</h5>
-                    <ul className="space-y-2">
-                      {(exp.achievements ?? []).map((achievement, achIndex) => (
-                        <li key={achIndex} className="text-[var(--console-text)] leading-relaxed flex items-start">
-                          <span className="text-[var(--console-primary)] mr-2 mt-1 text-sm">▸</span>
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--console-primary)]">
+                      Key Achievements
+                    </p>
+                    <ul className="space-y-2 text-sm leading-relaxed text-[var(--console-text)]">
+                      {(exp.achievements ?? []).map((achievement) => (
+                        <li key={achievement} className="flex items-start gap-2">
+                          <span className="mt-1 text-sm text-[var(--console-primary)]">▸</span>
                           <span>{achievement}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div>
-                    <h5 className="text-md font-semibold text-[var(--console-primary)] mb-2">Technologies Used:</h5>
+                    <p className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--console-primary)]">
+                      Technologies Used
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {(exp.technologies ?? []).map((tech) => (
-                        <span 
-                          key={tech}
-                          className="px-3 py-1 bg-[var(--console-bg)] rounded-full text-xs text-[var(--console-secondary)] border border-[var(--console-secondary)]"
-                        >
+                        <ConsoleTag key={tech} tone="secondary">
                           {tech}
-                        </span>
+                        </ConsoleTag>
                       ))}
                     </div>
                   </div>
                 </>
               )}
-            </div>
+            </ConsolePanel>
           ))}
         </div>
-        
-        {/* Impact Summary */}
-        <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
-          <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">
+
+        <ConsolePanel>
+          <ConsoleHeading level={3} className="mb-4 text-lg text-[var(--console-secondary)]">
             Impact Summary
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {experienceMetrics.map(metric => (
-              <div
-                key={metric.label}
-                className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]"
-              >
-                <div className="text-2xl font-bold text-[var(--console-primary)] mb-2">{metric.value}</div>
+          </ConsoleHeading>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {experienceMetrics.map((metric) => (
+              <ConsolePanel key={metric.label} tone="base" padding="sm" className="text-center">
+                <div className="mb-2 text-2xl font-bold text-[var(--console-primary)]">{metric.value}</div>
                 <p className="text-sm text-[var(--console-text-dim)]">{metric.label}</p>
-              </div>
+              </ConsolePanel>
             ))}
           </div>
-        </div>
+        </ConsolePanel>
       </div>
     </PortfolioLayout>
   );

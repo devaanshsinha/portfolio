@@ -97,7 +97,7 @@ export const aboutSummary = {
     institution: "University of Wisconsin Madison",
     program: "BS in Computer Science, Certificate in Game Design",
     duration: "Sept 2022 – May 2026 | GPA: 3.9/4.0",
-    achievements: ["6-time Dean's List recipient"],
+    achievements: [],
     crestImage: "/images/WX9DTCt5_400x400.png",
     crestAlt: "University of Wisconsin Madison logo"
   } satisfies Education
@@ -364,12 +364,12 @@ export const contactInfoCards: ContactCard[] = [
 export const contactLinks: ContactLink[] = [
   {
     label: "LinkedIn",
-    description: "Professional Profile",
+    description: "linkedin.com/in/devaanshsinha",
     href: "https://www.linkedin.com/in/devaanshsinha/"
   },
   {
     label: "GitHub",
-    description: "Code Portfolio",
+    description: "devaanshsinha",
     href: "https://www.github.com/devaanshsinha/"
   },
   {

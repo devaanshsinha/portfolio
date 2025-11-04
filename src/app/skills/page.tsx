@@ -1,6 +1,10 @@
-import PortfolioLayout from '../components/PortfolioLayout';
-import { HiCode, HiShieldCheck, HiLightningBolt, HiCube } from 'react-icons/hi';
-import { interestCards, skillCategories, skillHighlights } from '../data/profile';
+import PortfolioLayout from "../components/PortfolioLayout";
+import { ConsoleHeading } from "../components/console/console-heading";
+import { ConsolePanel } from "../components/console/console-panel";
+import { ConsoleTag } from "../components/console/console-tag";
+import { HiCode, HiCube, HiLightningBolt, HiShieldCheck } from "react-icons/hi";
+
+import { interestCards, skillCategories, skillHighlights } from "../data/profile";
 
 export default function Skills() {
   const iconOrder = [HiCode, HiCube, HiShieldCheck, HiLightningBolt];
@@ -8,74 +12,71 @@ export default function Skills() {
   return (
     <PortfolioLayout>
       <div className="space-y-6">
-        <h2 className="text-xl sm:text-2xl font-bold text-[var(--console-primary)] mb-4 sm:mb-6">
-          {'< SKILLS & EXPERTISE />'}
-        </h2>
-        
-        {/* Technical Skills */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ConsoleHeading level={2} className="mb-4 sm:mb-6">
+          {"< SKILLS & EXPERTISE />"}
+        </ConsoleHeading>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {skillCategories.map((group) => (
-            <div 
-              key={group.category}
-              className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)]"
-            >
-              <h3 className="text-base sm:text-lg font-bold text-[var(--console-secondary)] mb-3 sm:mb-4">
+            <ConsolePanel key={group.category}>
+              <ConsoleHeading
+                level={3}
+                className="mb-3 text-base text-[var(--console-secondary)] sm:mb-4 sm:text-lg"
+              >
                 {group.category}
-              </h3>
+              </ConsoleHeading>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
-                  <span 
+                  <ConsoleTag
                     key={skill}
-                    className="px-2 sm:px-3 py-1 bg-[var(--console-bg)] rounded text-xs sm:text-sm text-[var(--console-text)] border border-[var(--console-border)] hover:border-[var(--console-primary)] transition-colors"
+                    className="px-3 py-1.5 text-sm sm:px-4 sm:py-2 sm:text-base"
                   >
                     {skill}
-                  </span>
+                  </ConsoleTag>
                 ))}
               </div>
-            </div>
+            </ConsolePanel>
           ))}
         </div>
 
-        {/* Professional Experience Highlights */}
-        <div className="bg-[var(--console-bg-light)] p-4 sm:p-6 rounded-lg border border-[var(--console-border)]">
-          <h3 className="text-base sm:text-lg font-bold text-[var(--console-secondary)] mb-3 sm:mb-4">
+        <ConsolePanel>
+          <ConsoleHeading
+            level={3}
+            className="mb-3 text-base text-[var(--console-secondary)] sm:mb-4 sm:text-lg"
+          >
             Professional Experience Highlights
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          </ConsoleHeading>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {skillHighlights.map((highlight) => (
-              <div key={highlight.title}>
-                <h4 className="font-semibold text-[var(--console-accent)] mb-2">{highlight.title}</h4>
+              <ConsolePanel key={highlight.title} tone="base" padding="sm">
+                <h4 className="mb-2 font-semibold text-[var(--console-accent)]">{highlight.title}</h4>
                 <ul className="space-y-2 text-[var(--console-text)]">
                   {highlight.bullets.map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
                 </ul>
-              </div>
+              </ConsolePanel>
             ))}
           </div>
-        </div>
+        </ConsolePanel>
 
-        {/* Areas of Interest */}
-        <div className="bg-[var(--console-bg-light)] p-6 rounded-lg border border-[var(--console-border)]">
-          <h3 className="text-lg font-bold text-[var(--console-secondary)] mb-4">
+        <ConsolePanel>
+          <ConsoleHeading level={3} className="mb-4 text-lg text-[var(--console-secondary)]">
             Areas of Interest & Expertise
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          </ConsoleHeading>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             {interestCards.map((card, index) => {
               const Icon = iconOrder[index] ?? HiCode;
               return (
-                <div
-                  key={card.title}
-                  className="text-center p-4 bg-[var(--console-bg)] rounded border border-[var(--console-border)]"
-                >
-                  <Icon className="text-4xl mb-2 mx-auto text-[var(--console-primary)]" />
-                  <h4 className="font-semibold text-[var(--console-primary)] mb-2">{card.title}</h4>
+                <ConsolePanel key={card.title} tone="base" padding="sm" className="text-center">
+                  <Icon className="mx-auto mb-2 text-4xl text-[var(--console-primary)]" />
+                  <h4 className="mb-2 font-semibold text-[var(--console-primary)]">{card.title}</h4>
                   <p className="text-sm text-[var(--console-text-dim)]">{card.description}</p>
-                </div>
+                </ConsolePanel>
               );
             })}
           </div>
-        </div>
+        </ConsolePanel>
       </div>
     </PortfolioLayout>
   );

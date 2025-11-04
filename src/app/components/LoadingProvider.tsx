@@ -23,7 +23,7 @@ export default function LoadingProvider({ children }: LoadingProviderProps) {
   const [terminalText, setTerminalText] = useState('');
 
   useEffect(() => {
-    const loadingText = 'INITIALIZING PORTFOLIO SYSTEM...';
+    const loadingText = '';
     let index = 0;
     
     const interval = setInterval(() => {
