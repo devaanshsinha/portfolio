@@ -96,7 +96,7 @@ export const aboutSummary = {
   education: {
     institution: "University of Wisconsin Madison",
     program: "BS in Computer Science, Certificate in Game Design",
-    duration: "Sept 2022 – May 2026 | GPA: 3.9/4.0",
+    duration: "Sept 2022 – Dec 2025 | GPA: 3.9/4.0",
     achievements: [],
     crestImage: "/images/WX9DTCt5_400x400.png",
     crestAlt: "University of Wisconsin Madison logo"
@@ -382,7 +382,7 @@ export const contactLinks: ContactLink[] = [
 export const statusCards: StatusCard[] = [
   {
     title: "Education",
-    description: "Senior year at UW Madison\nGraduating May 2026"
+    description: "Senior year at UW Madison\nGraduating Dec 2025"
   },
   {
     title: "Work",
