@@ -43,7 +43,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
 
   const menuItems = useMemo(
     () => [
-      { id: 'about', label: 'ABOUT', icon: '▸', href: '/about' },
+      { id: 'about', label: 'ABOUT', icon: '▸', href: '/' },
       { id: 'experience', label: 'EXPERIENCE', icon: '▸', href: '/experience' },
       { id: 'projects', label: 'PROJECTS', icon: '▸', href: '/projects' },
       { id: 'skills', label: 'SKILLS', icon: '▸', href: '/skills' },
@@ -53,7 +53,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   );
 
   const getActiveSection = useCallback((): string => {
-    if (pathname === '/' || pathname === '/about') return 'about';
+    if (pathname === '/') return 'about';
     if (pathname === '/experience') return 'experience';
     if (pathname === '/projects' || pathname.startsWith('/projects/')) return 'projects';
     if (pathname === '/skills') return 'skills';
