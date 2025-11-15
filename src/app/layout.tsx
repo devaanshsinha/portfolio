@@ -64,10 +64,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
       { url: "/images/dicon.png", type: "image/png" },
-      { url: "/favicon.png", type: "image/png" },
     ],
-    shortcut: "/favicon.png",
+    shortcut: ["/favicon.ico"],
     apple: "/images/dicon.png",
   },
 };
