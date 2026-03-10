@@ -49,14 +49,14 @@ export default function Remnis() {
         <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
           <h2 className="text-xl font-bold text-[var(--console-secondary)]">Overview</h2>
           <p className="leading-relaxed text-[var(--console-text)]">
-            I started building Remnis to solve a problem I keep running into as an engineer: context fragmentation. Terminal output,
-            IDE state, browser tabs, and notes are all useful in the moment, but they disappear fast once I switch tasks. Remnis is
-            meant to turn that short-lived workflow context into something I can actually recover later.
+            Remnis is a local macOS memory engine for developers. I am building it to solve the context fragmentation problem that
+            shows up across terminals, editors, browsers, docs, and chat tools, where useful work context disappears as soon as you
+            switch tasks.
           </p>
           <p className="leading-relaxed text-[var(--console-text)]">
-            The architecture uses a Tauri shell for the desktop interface and a Python sidecar for backend processing. The full system
-            is designed to stay on-device, so I can search my workflow history semantically without sending sensitive data, code
-            context, or machine activity to the cloud.
+            The product strategy is explicitly local-only and capture-first. Remnis should make it possible to search by intent, not
+            exact keywords, but that only works if the capture pipeline is reliable, low-noise, and lightweight enough to run in the
+            background without getting in the way.
           </p>
         </div>
 
@@ -65,19 +65,19 @@ export default function Remnis() {
           <div className="grid gap-4 md:grid-cols-2">
             <Feature
               title="Desktop + Sidecar Split"
-              description="Tauri desktop app talks to a local FastAPI sidecar so the UI and workflow capture pipeline stay decoupled."
+              description="The Tauri desktop shell starts reliably, talks to the local sidecar, and can fetch `/health` with readiness flags."
             />
             <Feature
               title="Active Window Observer"
-              description="Observer v1 watches active macOS window context and prepares events for the local ingest pipeline."
+              description="Observer v1 captures active-window context on macOS as the initial high-signal source for work memory."
             />
             <Feature
               title="Local Ingest + Search APIs"
-              description="`/health`, `/ingest`, `/observer/stats`, and `/search` are already wired for readiness checks, ingestion, diagnostics, and keyword retrieval."
+              description="`/health`, `/ingest`, `/observer/stats`, and `/search` are wired for readiness checks, diagnostics, ingest, and keyword-search fallback."
             />
             <Feature
               title="Deduped Local Storage"
-              description="Events are normalized, debounced, deduplicated, and persisted locally in JSONL so recall stays fast and private."
+              description="Events are normalized, hashed, debounced, deduplicated, and persisted locally in JSONL before future indexing."
             />
           </div>
         </div>
@@ -86,23 +86,23 @@ export default function Remnis() {
           <h2 className="text-xl font-bold text-[var(--console-secondary)]">Architecture</h2>
           <div className="grid gap-4 lg:grid-cols-2">
             <ArchitectureCard
-              title="Desktop App"
-              description="Tauri + React + TypeScript power the desktop shell and current UI foundation for future recall, timeline, and HUD flows."
+              title="Desktop Shell"
+              description="Tauri + React + TypeScript handle the UI, hotkey, menu bar direction, and local orchestration between the desktop shell and sidecar."
               badges={['Tauri', 'React', 'TypeScript', 'Tailwind CSS']}
             />
             <ArchitectureCard
               title="Local Sidecar"
-              description="A Python sidecar handles ingest, health, diagnostics, embeddings, and search endpoints so the heavier backend processing can run independently from the desktop shell."
+              description="The Python FastAPI sidecar owns the observer, ingest pipeline, health surface, and search endpoints so the capture and retrieval logic can evolve independently from the desktop UI."
               badges={['Python', 'FastAPI', 'REST APIs', 'Schema Validation']}
             />
             <ArchitectureCard
               title="Capture Pipeline"
-              description="Observer events are normalized, hashed, deduplicated, and debounced before they are stored, which keeps the memory layer clean instead of noisy."
+              description="The pipeline is observe, normalize, hash, debounce, dedupe, store, then eventually index. The product depends more on high-signal capture than on model sophistication."
               badges={['macOS', 'Event Processing', 'Hashing', 'Debounce']}
             />
             <ArchitectureCard
-              title="Local-First RAG"
-              description="Remnis uses LanceDB and open-source embedding models to vectorize system metadata and workflow history, enabling semantic search over past tasks, errors, files, and app context while everything stays local."
+              title="Semantic Layer"
+              description="The intended storage layer is LanceDB with vectors plus metadata persistence, but the local embedding/indexing pipeline and heavier query-time reasoning model are not integrated into runtime yet."
               badges={['JSONL', 'LanceDB', 'Embeddings', 'Semantic Search']}
             />
           </div>
@@ -119,66 +119,85 @@ export default function Remnis() {
             description="The ingest layer validates the payload, hashes it, removes noisy duplicates, and stores only the useful context."
           />
           <WorkflowStep
-            title="3. Search"
-            description="The desktop app queries the local sidecar to recover recent context through keyword ranking and future semantic recall."
+            title="3. Store and Index"
+            description="Accepted events are persisted locally and later indexed with the lightweight embedding model once the semantic pipeline is integrated."
           />
           <WorkflowStep
-            title="4. Resume Work"
-            description="The long-term UX is a fast Spotlight-style flow that helps you jump back into a task without rebuilding context from scratch."
+            title="4. Query and Render"
+            description="Queries will be embedded, matched semantically, optionally reranked or synthesized by a heavier local model, and surfaced in a HUD with app identity, snippet, and time context."
           />
         </div>
 
         <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
-          <h2 className="text-xl font-bold text-[var(--console-secondary)]">In Progress</h2>
+          <h2 className="text-xl font-bold text-[var(--console-secondary)]">Two-Model End State</h2>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-lg border border-[var(--console-border)] bg-[var(--console-bg)] p-4">
               <h3 className="mb-2 flex items-center gap-2 font-semibold text-[var(--console-accent)]">
                 <HiOutlineSearch />
-                Semantic Recall
+                Model 1: Background Indexing
               </h3>
               <p className="text-sm leading-relaxed text-[var(--console-text)]">
-                The goal is to make queries like &quot;that docker error from this morning&quot; resolve to the right terminal output,
-                file edits, and surrounding context without needing exact keywords.
+                Remnis is intended to ship with an always-on local embedding and indexing model for event and query embeddings. The
+                baseline planned model is `all-MiniLM-L6-v2`, used in the background for semantic indexing with low overhead.
               </p>
             </div>
             <div className="rounded-lg border border-[var(--console-border)] bg-[var(--console-bg)] p-4">
               <h3 className="mb-2 flex items-center gap-2 font-semibold text-[var(--console-accent)]">
                 <HiOutlineChip />
-                Better Recall UX
+                Model 2: Query-Time Reasoning
               </h3>
               <p className="text-sm leading-relaxed text-[var(--console-text)]">
-                I am also building toward a Spotlight-style HUD, faster ranking, and cleaner context snippets so retrieval feels
-                instant while I am working instead of becoming a slow forensic search tool.
+                A second, heavier local model is reserved for query-time use only when the user invokes Remnis and wants reranking,
+                synthesis, reminders, related-context explanations, or a better final answer.
               </p>
             </div>
           </div>
         </div>
 
         <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
-          <h2 className="text-xl font-bold text-[var(--console-secondary)]">Challenges & Solutions</h2>
+          <h2 className="text-xl font-bold text-[var(--console-secondary)]">Strategy & Challenges</h2>
           <Challenge
-            title="Privacy-Preserving Search"
-            description="A major design constraint is that the system should be useful without relying on cloud inference. Running open-source embedding models fully on-device lets Remnis perform intelligent retrieval over private workflow history without leaking sensitive engineering context."
+            title="Capture Quality Comes First"
+            description="The hardest part of the product is reliable, high-signal capture across sources. Better embeddings or reasoning cannot compensate for weak or noisy capture, so the architecture is intentionally capture-first."
           />
           <Challenge
-            title="Inference Speed vs. IPC Latency"
-            description="One of the harder engineering problems has been balancing model inference speed with the Inter-Process Communication overhead between the Tauri shell and Python sidecar. The system has to feel instantaneous, which means retrieval quality only matters if the round trip is fast enough to stay invisible during real work."
+            title="Local-Only Constraints"
+            description="Everything is designed to stay local by default, with explicit OS permission handling, low CPU and memory overhead, and graceful failure when dependencies or permissions are unavailable."
           />
           <Challenge
-            title="Useful Context, Not Noise"
-            description="Workflow memory can get noisy quickly, so the ingest path normalizes events, hashes payloads, and deduplicates repeated activity before it reaches retrieval. That keeps the history searchable without turning every app switch into useless clutter."
+            title="Fast Retrieval Later"
+            description="Once both local model tiers are integrated, the product will still need to balance background indexing cost, query-time reasoning cost, and the boundary between the desktop shell and local sidecar so search feels immediate."
           />
         </div>
 
         <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
-          <h2 className="text-xl font-bold text-[var(--console-secondary)]">Impact Direction</h2>
+          <h2 className="text-xl font-bold text-[var(--console-secondary)]">Next Expansion</h2>
+          <div className="space-y-3">
+            <WorkflowStep
+              title="Browser Adapter"
+              description="The next high-value source is browser capture, especially URL, title, and snippet context."
+            />
+            <WorkflowStep
+              title="Clipboard + Notifications"
+              description="Clipboard and notification capture follow after browser integration to make cross-app recall more robust."
+            />
+            <WorkflowStep
+              title="HUD + Hotkey"
+              description="The long-term UX is a Spotlight-style HUD with fast semantic retrieval, relative time, app identity, and optional synthesized answers."
+            />
+          </div>
+        </div>
+
+        <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
+          <h2 className="text-xl font-bold text-[var(--console-secondary)]">Current Status</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <MetricCard value="4" label="Local API routes already running" />
             <MetricCard value="1" label="Observer loop shipping in v1 today" />
-            <MetricCard value="0" label="Cloud dependency required for core capture" />
+            <MetricCard value="0" label="Local model tiers integrated in runtime yet" />
           </div>
           <p className="text-sm text-[var(--console-text-dim)]">
-            The product direction is centered on private, intent-based recall for developers who want better memory without shipping their workflow data to someone else&apos;s servers.
+            Today the baseline observer, ingest, JSONL persistence, and keyword-search fallback are in place. The app is not considered
+            complete until both local model tiers, LanceDB-backed retrieval, and the final query-time reasoning flow are running locally.
           </p>
         </div>
 
