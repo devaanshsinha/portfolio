@@ -15,25 +15,48 @@ export default function Remnis() {
           <span>Back to Projects</span>
         </Link>
 
-        <div className="border-b border-[var(--console-border)] pb-6">
-          <h1 className="mb-2 text-2xl font-bold text-[var(--console-primary)] sm:text-3xl">
-            Remnis
-          </h1>
-          <p className="text-lg text-[var(--console-secondary)]">
-            Local Work Memory for macOS Developers
-          </p>
+        <div className="flex flex-col gap-4 border-b border-[var(--console-border)] pb-6 lg:flex-row lg:items-start lg:justify-between">
+          <div>
+            <h1 className="mb-2 text-2xl font-bold text-[var(--console-primary)] sm:text-3xl">
+              Remnis
+            </h1>
+            <p className="text-lg text-[var(--console-secondary)]">
+              Local Work Memory for macOS Developers
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-2 lg:min-w-[210px] lg:items-stretch">
+            <a
+              href="https://www.remnis.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--console-primary)] px-4 py-2 text-sm font-bold text-[var(--console-bg)] transition-colors hover:bg-[var(--console-secondary)]"
+            >
+              <HiExternalLink />
+              Visit Live Site
+            </a>
+            <a
+              href="https://github.com/devaanshsinha/remnis-app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-lg border border-[var(--console-primary)] bg-[var(--console-bg)] px-4 py-2 text-sm font-bold text-[var(--console-primary)] transition-colors hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)]"
+            >
+              <HiCode />
+              View Source
+            </a>
+          </div>
         </div>
 
         <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
           <h2 className="text-xl font-bold text-[var(--console-secondary)]">Overview</h2>
           <p className="leading-relaxed text-[var(--console-text)]">
-            Remnis is a local-first app I am building for developers who constantly lose context while switching between terminals,
-            editors, browsers, docs, and chat tools. The goal is simple: make it easy to search your own work history and find the
-            exact error, file, tab, or task context you already solved earlier.
+            I started building Remnis to solve a problem I keep running into as an engineer: context fragmentation. Terminal output,
+            IDE state, browser tabs, and notes are all useful in the moment, but they disappear fast once I switch tasks. Remnis is
+            meant to turn that short-lived workflow context into something I can actually recover later.
           </p>
           <p className="leading-relaxed text-[var(--console-text)]">
-            The core product is designed to stay on-device. Remnis captures workflow context on macOS, normalizes it into searchable
-            events, and is evolving toward semantic recall so you can ask for intent instead of remembering exact keywords.
+            The architecture uses a Tauri shell for the desktop interface and a Python sidecar for backend processing. The full system
+            is designed to stay on-device, so I can search my workflow history semantically without sending sensitive data, code
+            context, or machine activity to the cloud.
           </p>
         </div>
 
@@ -69,8 +92,8 @@ export default function Remnis() {
             />
             <ArchitectureCard
               title="Local Sidecar"
-              description="FastAPI handles ingest, health, diagnostics, and search endpoints so all indexing and lookup logic can run next to the desktop app."
-              badges={['FastAPI', 'Python', 'REST APIs', 'Schema Validation']}
+              description="A Python sidecar handles ingest, health, diagnostics, embeddings, and search endpoints so the heavier backend processing can run independently from the desktop shell."
+              badges={['Python', 'FastAPI', 'REST APIs', 'Schema Validation']}
             />
             <ArchitectureCard
               title="Capture Pipeline"
@@ -78,9 +101,9 @@ export default function Remnis() {
               badges={['macOS', 'Event Processing', 'Hashing', 'Debounce']}
             />
             <ArchitectureCard
-              title="Storage + Retrieval"
-              description="Current retrieval uses local keyword ranking over persisted events, with embeddings and LanceDB planned as the next step for intent-based recall."
-              badges={['JSONL', 'Local Search', 'Embeddings', 'LanceDB']}
+              title="Local-First RAG"
+              description="Remnis uses LanceDB and open-source embedding models to vectorize system metadata and workflow history, enabling semantic search over past tasks, errors, files, and app context while everything stays local."
+              badges={['JSONL', 'LanceDB', 'Embeddings', 'Semantic Search']}
             />
           </div>
         </div>
@@ -114,8 +137,8 @@ export default function Remnis() {
                 Semantic Recall
               </h3>
               <p className="text-sm leading-relaxed text-[var(--console-text)]">
-                Remnis is moving from keyword search toward embedding-powered retrieval so queries like &quot;that docker error from this morning&quot;
-                can resolve to the right context without exact phrasing.
+                The goal is to make queries like &quot;that docker error from this morning&quot; resolve to the right terminal output,
+                file edits, and surrounding context without needing exact keywords.
               </p>
             </div>
             <div className="rounded-lg border border-[var(--console-border)] bg-[var(--console-bg)] p-4">
@@ -124,10 +147,27 @@ export default function Remnis() {
                 Better Recall UX
               </h3>
               <p className="text-sm leading-relaxed text-[var(--console-text)]">
-                I am also building toward a Spotlight-style HUD, faster ranking, and cleaner context snippets so recovery feels instant instead of forensic.
+                I am also building toward a Spotlight-style HUD, faster ranking, and cleaner context snippets so retrieval feels
+                instant while I am working instead of becoming a slow forensic search tool.
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
+          <h2 className="text-xl font-bold text-[var(--console-secondary)]">Challenges & Solutions</h2>
+          <Challenge
+            title="Privacy-Preserving Search"
+            description="A major design constraint is that the system should be useful without relying on cloud inference. Running open-source embedding models fully on-device lets Remnis perform intelligent retrieval over private workflow history without leaking sensitive engineering context."
+          />
+          <Challenge
+            title="Inference Speed vs. IPC Latency"
+            description="One of the harder engineering problems has been balancing model inference speed with the Inter-Process Communication overhead between the Tauri shell and Python sidecar. The system has to feel instantaneous, which means retrieval quality only matters if the round trip is fast enough to stay invisible during real work."
+          />
+          <Challenge
+            title="Useful Context, Not Noise"
+            description="Workflow memory can get noisy quickly, so the ingest path normalizes events, hashes payloads, and deduplicates repeated activity before it reaches retrieval. That keeps the history searchable without turning every app switch into useless clutter."
+          />
         </div>
 
         <div className="space-y-4 rounded-lg border border-[var(--console-border)] bg-[var(--console-bg-light)] p-6">
@@ -142,26 +182,6 @@ export default function Remnis() {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-4">
-          <a
-            href="https://www.remnis.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-lg bg-[var(--console-primary)] px-6 py-3 font-bold text-[var(--console-bg)] transition-colors hover:bg-[var(--console-secondary)]"
-          >
-            <HiExternalLink />
-            Visit Live Site
-          </a>
-          <a
-            href="https://github.com/devaanshsinha/remnis-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-lg border border-[var(--console-primary)] bg-[var(--console-bg)] px-6 py-3 font-bold text-[var(--console-primary)] transition-colors hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)]"
-          >
-            <HiCode />
-            View Source
-          </a>
-        </div>
       </div>
     </PortfolioLayout>
   );
@@ -224,6 +244,20 @@ function WorkflowStep({ title, description }: WorkflowStepProps) {
         <h3 className="font-semibold text-[var(--console-text)]">{title}</h3>
         <p className="text-sm text-[var(--console-text-dim)]">{description}</p>
       </div>
+    </div>
+  );
+}
+
+interface ChallengeProps {
+  title: string;
+  description: string;
+}
+
+function Challenge({ title, description }: ChallengeProps) {
+  return (
+    <div>
+      <h3 className="font-semibold text-[var(--console-accent)]">{title}</h3>
+      <p className="mt-1 text-sm text-[var(--console-text)]">{description}</p>
     </div>
   );
 }

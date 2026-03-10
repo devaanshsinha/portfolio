@@ -16,13 +16,35 @@ export default function Cogniflow() {
         </Link>
 
         {/* Project Header */}
-        <div className="border-b border-[var(--console-border)] pb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[var(--console-primary)] mb-2">
-            Cogniflow
-          </h1>
-          <p className="text-lg text-[var(--console-secondary)]">
-            On-chain Intelligence Agent & Portfolio Analytics Platform
-          </p>
+        <div className="flex flex-col gap-4 border-b border-[var(--console-border)] pb-6 lg:flex-row lg:items-start lg:justify-between">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[var(--console-primary)] mb-2">
+              Cogniflow
+            </h1>
+            <p className="text-lg text-[var(--console-secondary)]">
+              On-chain Intelligence Agent & Portfolio Analytics Platform
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-2 lg:min-w-[210px] lg:items-stretch">
+            <a
+              href="https://cogniflow-web.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--console-primary)] px-4 py-2 text-sm font-bold text-[var(--console-bg)] transition-colors hover:bg-[var(--console-secondary)]"
+            >
+              <HiExternalLink />
+              Visit Live App
+            </a>
+            <a
+              href="https://github.com/devaanshsinha/cogniflow"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-lg border border-[var(--console-primary)] bg-[var(--console-bg)] px-4 py-2 text-sm font-bold text-[var(--console-primary)] transition-colors hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)]"
+            >
+              <HiCode />
+              View Source
+            </a>
+          </div>
         </div>
 
         {/* Overview */}
@@ -177,27 +199,6 @@ export default function Cogniflow() {
           </div>
         </div>
 
-        {/* Links */}
-        <div className="flex gap-4 flex-wrap">
-          <a
-            href="https://cogniflow-web.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-[var(--console-primary)] text-[var(--console-bg)] font-bold rounded-lg hover:bg-[var(--console-secondary)] transition-colors flex items-center gap-2"
-          >
-            <HiExternalLink />
-            Visit Live App
-          </a>
-          <a
-            href="https://github.com/devaanshsinha/cogniflow"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-[var(--console-bg)] border border-[var(--console-primary)] text-[var(--console-primary)] font-bold rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-colors flex items-center gap-2"
-          >
-            <HiCode />
-            View Source
-          </a>
-        </div>
       </div>
     </PortfolioLayout>
   );

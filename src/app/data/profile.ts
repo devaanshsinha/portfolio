@@ -218,7 +218,7 @@ export const projectEntries: ProjectEntry[] = [
   {
     title: "Remnis",
     description:
-      "Developing a local-first work memory app for macOS developers with a Tauri + React desktop client and FastAPI sidecar that captures active-window context, normalizes and stores events locally, exposes ingest and search APIs, and is expanding toward embedding-powered retrieval, LanceDB indexing, and a Spotlight-style recall workflow without sending data to the cloud.",
+      "Developing a local-first work memory app for macOS developers with a Tauri + React desktop client and Python sidecar that captures active-window context, normalizes workflow events, and uses an on-device RAG pipeline with LanceDB and open-source embeddings to make past errors, files, and task context semantically searchable without sending data to the cloud.",
     technologies: [
       "Tauri",
       "React",

@@ -13,13 +13,35 @@ export default function ShelfWise() {
         </Link>
 
         {/* Project Header */}
-        <div className="border-b border-[var(--console-border)] pb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[var(--console-primary)] mb-2">
-            ShelfWise
-          </h1>
-          <p className="text-lg text-[var(--console-secondary)]">
-            AI-Powered Pantry Management System
-          </p>
+        <div className="flex flex-col gap-4 border-b border-[var(--console-border)] pb-6 lg:flex-row lg:items-start lg:justify-between">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[var(--console-primary)] mb-2">
+              ShelfWise
+            </h1>
+            <p className="text-lg text-[var(--console-secondary)]">
+              AI-Powered Pantry Management System
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-2 lg:min-w-[210px] lg:items-stretch">
+            <a 
+              href="https://shelfwise-puce.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--console-primary)] px-4 py-2 text-sm font-bold text-[var(--console-bg)] transition-colors hover:bg-[var(--console-secondary)]"
+            >
+              <HiExternalLink />
+              Visit Live Site
+            </a>
+            <a 
+              href="https://www.youtube.com/watch?v=ljWgrLuKK-s" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-lg border border-[var(--console-primary)] bg-[var(--console-bg)] px-4 py-2 text-sm font-bold text-[var(--console-primary)] transition-colors hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)]"
+            >
+              <HiExternalLink />
+              Watch Demo Video
+            </a>
+          </div>
         </div>
 
         {/* Overview Section */}
@@ -205,27 +227,6 @@ export default function ShelfWise() {
           </ul>
         </div>
 
-        {/* Links */}
-        <div className="flex gap-4 flex-wrap">
-          <a 
-            href="https://shelfwise-puce.vercel.app/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-[var(--console-primary)] text-[var(--console-bg)] font-bold rounded-lg hover:bg-[var(--console-secondary)] transition-colors flex items-center gap-2"
-          >
-            <HiExternalLink />
-            Visit Live Site
-          </a>
-          <a 
-            href="https://www.youtube.com/watch?v=ljWgrLuKK-s" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-[var(--console-bg)] border border-[var(--console-primary)] text-[var(--console-primary)] font-bold rounded-lg hover:bg-[var(--console-primary)] hover:text-[var(--console-bg)] transition-colors flex items-center gap-2"
-          >
-            <HiExternalLink />
-            Watch Demo Video
-          </a>
-        </div>
       </div>
     </PortfolioLayout>
   );
