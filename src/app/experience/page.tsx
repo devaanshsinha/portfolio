@@ -4,6 +4,15 @@ import { ConsolePanel } from '../components/console/console-panel';
 import { ConsoleTag } from '../components/console/console-tag';
 import { experienceEntries, experienceMetrics } from '../data/profile';
 
+function getPeriodYearLabel(duration: string) {
+  const years = Array.from(new Set(duration.match(/\d{4}/g) ?? []));
+  if (years.length === 0) {
+    return '';
+  }
+
+  return years.length === 1 ? years[0] : `${years[0]}-${years[years.length - 1]}`;
+}
+
 export default function Experience() {
   return (
     <PortfolioLayout>
@@ -40,7 +49,7 @@ export default function Experience() {
                           {period.duration}
                         </h5>
                         <span className="text-xs font-medium text-[var(--console-text-dim)]">
-                          {index === 0 ? '2025' : '2024'}
+                          {getPeriodYearLabel(period.duration)}
                         </span>
                       </div>
 

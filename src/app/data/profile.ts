@@ -86,8 +86,8 @@ export interface StatusCard {
 
 export const aboutSummary = {
   paragraphs: [
-    "Hello! I'm Devaansh Sinha, a Computer Science student at the University of Wisconsin Madison passionate about building innovative digital experiences and solving complex problems through code.",
-    "With hands-on experience Gemini and Bajaj Finance Direct Limited, I specialize in full-stack development, system design, and security. I've developed tools serving hundreds of thousands of users and built systems that enhance security for large-scale applications.",
+    "Hey, I'm Devaansh, a recent UW-Madison computer science graduate who likes building products that feel sharp, useful, and a little fun.",
+    "I spend most of my time making full-stack apps, developer tools, and random ideas I get obsessed with until they work.",
   ],
   resume: {
     pdf: "/Devaansh_Sinha_resume.pdf",
@@ -106,23 +106,42 @@ export const aboutSummary = {
 export const experienceEntries: ExperienceEntry[] = [
   {
     company: "Gemini",
-    position: "Software Engineering Intern",
+    position: "Software Developer / Software Engineering Intern",
     location: "New York, NY",
     periods: [
       {
-        duration: "June 2025 – Present",
+        duration: "February 2026 – Present",
         achievements: [
-          "Redesigned Ethereum-based NFT tracking system, transitioning blockchain listener architecture to token-level activity and reducing network monitoring load by 70% while streamlining internal data management",
-          "Implemented automated removal of unsupported NFTs, reducing on-screen clutter, cutting database size by 200GB, and improving query performance by 40%",
-          "Upgraded external wallet API to eliminate redundant payloads, cutting data transfer size by 60% and improving load times for wallet-rich user accounts by 2.5 seconds",
+          "Worked on an internal full-stack admin platform using TypeScript, React, and Scala, strengthening error handling and improving system observability",
+          "Added and refined gRPC service endpoints to surface operational metadata and streamline internal access to system state",
+        ],
+        technologies: [
+          "TypeScript",
+          "React",
+          "Scala",
+          "gRPC",
+          "Internal Tooling",
+          "Observability",
+        ],
+      },
+      {
+        duration: "June 2025 – February 2026",
+        achievements: [
+          "Redesigned a Django-based backend microservice for Ethereum token activity, transitioning listener architecture to token-level activity and reducing production monitoring load by 70%",
+          "Stabilized Kubernetes workloads by tuning CPU and memory requests and limits, eliminating OOMKills and reducing pod restart rates in production",
+          "Built an automated token pruning pipeline that removed unsupported NFTs, cut PostgreSQL storage by 200GB, and improved query performance by 40%",
+          "Led API modernization across Stripe billing and external wallet services, refactoring legacy endpoints, maintaining SDK compliance, cutting payload size by 60%, and improving wallet-heavy load times by 2.5 seconds",
           "Collaborated one-on-one with a Project Manager to design and launch a Showcase section on user profiles, allowing creators to highlight pinned collections and increasing interactions with showcased items by 25%",
-          "Leading Gemini Horizon Wallet expansion with a dedicated NFT workspace that mirrors MetaMask-class management flows for ERC-721 and ERC-1155 assets",
+          "Developing Gemini Horizon Wallet expansion with a dedicated NFT workspace that mirrors MetaMask-class management flows for ERC-721 and ERC-1155 assets",
           "Delivered smart-contract powered NFT batch transfer for Horizon Wallet, enabling multi-token sends in a single transaction and reducing gas spend for power users",
         ],
         technologies: [
+          "Django",
           "Blockchain",
           "Web3",
+          "Kubernetes",
           "PostgreSQL",
+          "Stripe",
           "API Development",
           "Smart Contracts",
           "Wallet Infrastructure",
@@ -132,13 +151,41 @@ export const experienceEntries: ExperienceEntry[] = [
       {
         duration: "June 2024 – August 2024",
         achievements: [
-          "Developed and deployed custom standup tool using Django and AWS, automating daily submissions for 800+ remote employees and saving 10+ hours of meeting time weekly",
-          "Built comprehensive team management dashboard with custom reminders, standup questions, and work analysis features, increasing manager productivity by 25%",
+          "Built and deployed an internal automation platform using Django, AWS, and PostgreSQL for 800+ engineers, eliminating 10+ hours of manual reporting weekly",
+          "Developed an interactive team management dashboard inside Slack with configurable reminders, automated prompts, and work summaries, improving engineering lead oversight and team transparency",
+          "Owned backend features end-to-end across technical design, implementation, testing, code review, and production releases within Agile SDLC workflows",
           "Designed PostgreSQL database architecture managing 1,000+ standup entries with optimized queries for recaps, statistical insights, and historical data retrieval",
           "Developed calendar management system for NFT Marketplace drops, streamlining scheduling workflow for product releases",
         ],
-        technologies: ["Django", "AWS", "PostgreSQL", "REST APIs", "NFT"],
+        technologies: [
+          "Django",
+          "AWS",
+          "PostgreSQL",
+          "Slack",
+          "REST APIs",
+          "NFT",
+          "Agile",
+        ],
       },
+    ],
+  },
+  {
+    company: "Nandi Travels",
+    position: "Full Stack Developer",
+    location: "Niles, IL",
+    duration: "May 2025 – Present",
+    achievements: [
+      "Designed and developed a production-grade full-stack platform using React, Node.js, and PostgreSQL, exposing RESTful microservices that support booking workflows and real-time updates for 1K+ monthly users",
+      "Built event-driven automation with AWS Lambda and Twilio to handle 200+ weekly booking and trip notifications, reducing manual operations and improving system reliability",
+    ],
+    technologies: [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "REST APIs",
+      "AWS Lambda",
+      "Twilio",
+      "Event-Driven Architecture",
     ],
   },
   {
@@ -147,9 +194,9 @@ export const experienceEntries: ExperienceEntry[] = [
     location: "Pune, India",
     duration: "December 2022 – Aug 2023",
     achievements: [
-      "Built spam detection service using Spring Boot and Elasticsearch, securing 500K+ loan applications with 95% accuracy rate through dynamic database cross-referencing",
+      "Built a highly scalable spam detection service using Spring Boot and Elasticsearch, securing 500K+ loan applications with 95% accuracy through dynamic database cross-referencing",
       "Developed ID verification system and authorization services handling 10K+ daily authentication requests for company web services",
-      "Enhanced data protection by securing 15+ open endpoints and implementing access controls, achieving 20% reduction in reported data breaches",
+      "Enhanced data protection by securing 15+ open endpoints and implementing access controls across mission-critical backend systems, achieving a 20% reduction in reported data breaches",
     ],
     technologies: [
       "Spring Boot",
@@ -168,6 +215,25 @@ export const experienceMetrics: ExperienceMetric[] = [
 ];
 
 export const projectEntries: ProjectEntry[] = [
+  {
+    title: "Remnis",
+    description:
+      "Developing a local-first work memory app for macOS developers with a Tauri + React desktop client and FastAPI sidecar that captures active-window context, normalizes and stores events locally, exposes ingest and search APIs, and is expanding toward embedding-powered retrieval, LanceDB indexing, and a Spotlight-style recall workflow without sending data to the cloud.",
+    technologies: [
+      "Tauri",
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "Tailwind CSS",
+      "macOS",
+      "LanceDB",
+      "Embeddings",
+    ],
+    category: "Developer Productivity Tool",
+    detailsLink: "/projects/remnis",
+    ctaLabel: "View Project Details",
+  },
   {
     title: "Cogniflow",
     description:
