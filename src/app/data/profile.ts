@@ -478,7 +478,7 @@ export const contactInfoCards: ContactCard[] = [
 export const contactLinks: ContactLink[] = [
   {
     label: "LinkedIn",
-    description: "linkedin.com/in/devaanshsinha",
+    description: "Devaansh Sinha",
     href: "https://www.linkedin.com/in/devaanshsinha/",
   },
   {

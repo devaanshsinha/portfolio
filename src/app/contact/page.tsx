@@ -52,13 +52,15 @@ export default function Contact() {
                         : undefined;
 
                   const content = (
-                    <div className="flex items-center gap-3">
-                      <Icon className="text-xl text-[var(--console-secondary)] sm:text-2xl" />
-                      <div>
+                    <div className="flex min-w-0 items-start gap-3">
+                      <Icon className="mt-0.5 shrink-0 text-xl text-[var(--console-secondary)] sm:text-2xl" />
+                      <div className="min-w-0">
                         <div className="font-semibold text-[var(--console-secondary)]">
                           {card.label}
                         </div>
-                        <div className="text-sm text-[var(--console-text-dim)]">{card.value}</div>
+                        <div className="text-sm text-[var(--console-text-dim)] [overflow-wrap:anywhere]">
+                          {card.value}
+                        </div>
                       </div>
                     </div>
                   );
@@ -69,7 +71,7 @@ export default function Contact() {
                         key={card.label}
                         asChild
                         variant="outline"
-                        className="h-auto w-full justify-start gap-3 bg-[var(--console-bg)] px-4 py-3 text-left text-[var(--console-secondary)] hover:text-[var(--console-primary)]"
+                        className="h-auto w-full justify-start gap-3 whitespace-normal bg-[var(--console-bg)] px-4 py-3 text-left text-[var(--console-secondary)] hover:text-[var(--console-primary)]"
                       >
                         <a href={href}>{content}</a>
                       </Button>
@@ -108,13 +110,20 @@ export default function Contact() {
                       key={link.label}
                       asChild
                       variant="outline"
-                      className="h-auto w-full justify-start gap-3 bg-[var(--console-bg)] px-4 py-3 text-left text-[var(--console-secondary)] hover:text-[var(--console-primary)]"
+                      className="h-auto w-full justify-start gap-3 whitespace-normal bg-[var(--console-bg)] px-4 py-3 text-left text-[var(--console-secondary)] hover:text-[var(--console-primary)]"
                     >
-                      <a href={link.href} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex min-w-0 items-start gap-3"
+                      >
                         {icon}
-                        <div>
+                        <div className="min-w-0">
                           <div className="font-semibold">{link.label}</div>
-                          <div className="text-sm text-[var(--console-text-dim)]">{link.description}</div>
+                          <div className="text-sm text-[var(--console-text-dim)] [overflow-wrap:anywhere]">
+                            {link.description}
+                          </div>
                         </div>
                       </a>
                     </Button>

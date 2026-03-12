@@ -20,18 +20,18 @@ export default function AboutSection() {
       </ConsoleHeading>
 
       <ConsolePanel>
-        <div className="flex flex-col-reverse items-center gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-          <figure className="flex flex-col items-center text-center lg:order-2 lg:items-end lg:text-right">
+        <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+          <figure className="order-1 flex flex-col items-center text-center lg:order-2 lg:items-end lg:text-right">
             <Image
               src={headshot.src}
               alt={headshot.alt}
               width={224}
               height={224}
               priority
-              className="h-44 w-44 rounded border border-[var(--console-border)] object-cover shadow-lg lg:h-52 lg:w-52"
+              className="h-36 w-36 rounded border border-[var(--console-border)] object-cover shadow-lg sm:h-44 sm:w-44 lg:h-52 lg:w-52"
             />
           </figure>
-          <div className="order-1 w-full space-y-6">
+          <div className="order-2 w-full space-y-5 sm:space-y-6">
             <div className="space-y-4 sm:space-y-5">
               {paragraphs.map((paragraph) => (
                 <p key={paragraph} className="text-sm leading-relaxed text-[var(--console-text)] sm:text-base">
@@ -40,8 +40,8 @@ export default function AboutSection() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              <Button asChild>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <Button asChild className="w-full sm:w-auto">
                 <a
                   href={resume.pdf}
                   download={resume.fileName}
@@ -51,7 +51,7 @@ export default function AboutSection() {
                   Download Resume
                 </a>
               </Button>
-              <Button asChild variant="secondary">
+              <Button asChild variant="secondary" className="w-full sm:w-auto">
                 <a
                   href={resume.pdf}
                   target="_blank"
@@ -71,8 +71,15 @@ export default function AboutSection() {
         <ConsoleHeading level={3} className="mb-3 text-xl sm:mb-4 sm:text-xl text-[var(--console-secondary)]">
           Education
         </ConsoleHeading>
-        <div className="flex flex-col items-start gap-4 sm:flex-row">
-          <div className="flex-1 space-y-2">
+        <div className="flex items-start gap-4">
+          <Image
+            src={education.crestImage}
+            alt={education.crestAlt}
+            width={96}
+            height={96}
+            className="h-16 w-16 flex-shrink-0 rounded border border-[var(--console-border)] bg-white p-2 object-contain sm:h-24 sm:w-24"
+          />
+          <div className="min-w-0 flex-1 space-y-2">
             <h4 className="text-base font-semibold text-[var(--console-text)] sm:text-lg">
               {education.institution}
             </h4>
@@ -84,13 +91,6 @@ export default function AboutSection() {
               </p>
             ))}
           </div>
-          <Image
-            src={education.crestImage}
-            alt={education.crestAlt}
-            width={96}
-            height={96}
-            className="h-20 w-20 flex-shrink-0 self-center rounded border border-[var(--console-border)] bg-white p-2 object-contain sm:h-24 sm:w-24 sm:self-start"
-          />
         </div>
       </ConsolePanel>
     </div>
