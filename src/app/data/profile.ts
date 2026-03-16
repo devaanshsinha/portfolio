@@ -110,7 +110,7 @@ export const experienceEntries: ExperienceEntry[] = [
     location: "New York, NY",
     periods: [
       {
-        duration: "February 2026 – Present",
+        duration: "Feb 26 – Feb 26",
         achievements: [
           "Worked on an internal full-stack admin platform using TypeScript, React, and Scala, strengthening error handling and improving system observability",
           "Added and refined gRPC service endpoints to surface operational metadata and streamline internal access to system state",
@@ -125,7 +125,7 @@ export const experienceEntries: ExperienceEntry[] = [
         ],
       },
       {
-        duration: "June 2025 – February 2026",
+        duration: "Jun 25 – Aug 25",
         achievements: [
           "Redesigned a Django-based backend microservice for Ethereum token activity, transitioning listener architecture to token-level activity and reducing production monitoring load by 70%",
           "Stabilized Kubernetes workloads by tuning CPU and memory requests and limits, eliminating OOMKills and reducing pod restart rates in production",
@@ -149,7 +149,7 @@ export const experienceEntries: ExperienceEntry[] = [
         ],
       },
       {
-        duration: "June 2024 – August 2024",
+        duration: "Jun 24 – Aug 24",
         achievements: [
           "Built and deployed an internal automation platform using Django, AWS, and PostgreSQL for 800+ engineers, eliminating 10+ hours of manual reporting weekly",
           "Developed an interactive team management dashboard inside Slack with configurable reminders, automated prompts, and work summaries, improving engineering lead oversight and team transparency",
