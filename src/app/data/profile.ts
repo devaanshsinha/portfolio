@@ -7,9 +7,19 @@ export interface Education {
   institution: string;
   program: string;
   duration: string;
+  gpa: string;
   achievements: string[];
   crestImage: string;
   crestAlt: string;
+}
+
+export interface Employment {
+  company: string;
+  role: string;
+  team: string;
+  duration: string;
+  logoImage: string;
+  logoAlt: string;
 }
 
 export interface ExperiencePeriod {
@@ -86,17 +96,26 @@ export interface StatusCard {
 
 export const aboutSummary = {
   paragraphs: [
-    "Hey, I'm Devaansh, a recent UW-Madison computer science graduate who likes building products that feel sharp, useful, and a little fun.",
-    "I spend most of my time making full-stack apps, developer tools, and random ideas I get obsessed with until they work.",
+    "Yo, I'm Devaansh. I'm a software engineer at Microsoft and a recent UW-Madison graduate with a BS in Computer Science and a minor in Game Design.",
+    "I like building useful software, tinkering with computers, playing video games, and working through puzzles until the pieces click. Feel free to reach out to me to talk about the daily NY Times Sudoku!",
   ],
   resume: {
     pdf: "/Devaansh_Sinha_resume.pdf",
     fileName: "Devaansh_Sinha_Resume.pdf",
   } satisfies ResumeLinks,
+  employment: {
+    company: "Microsoft",
+    role: "Software Engineer",
+    team: "Azure Fabric OneLake Shortcuts",
+    duration: "May 2026 – Present",
+    logoImage: "/images/microsoft.png",
+    logoAlt: "Microsoft logo",
+  } satisfies Employment,
   education: {
     institution: "University of Wisconsin Madison",
-    program: "BS in Computer Science, Certificate in Game Design",
-    duration: "Sept 2022 – Dec 2025 | GPA: 3.9/4.0",
+    program: "BS in Computer Science, Minor in Game Design",
+    duration: "Sept 2022 – Dec 2025",
+    gpa: "GPA: 3.92/4.0",
     achievements: [],
     crestImage: "/images/WX9DTCt5_400x400.png",
     crestAlt: "University of Wisconsin Madison logo",
@@ -491,7 +510,7 @@ export const contactLinks: ContactLink[] = [
 export const statusCards: StatusCard[] = [
   {
     title: "Education",
-    description: "Senior year at UW Madison\nGraduating Dec 2025",
+    description: "Recent UW Madison graduate\nBS Computer Science, Minor in Game Design",
   },
   {
     title: "Work",

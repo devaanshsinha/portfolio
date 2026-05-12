@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Devaansh Sinha | Software Engineer",
   description:
-    "Portfolio of Devaansh Sinha — Software Engineer at UW–Madison. Explore projects, experiences, and research.",
+    "Portfolio of Devaansh Sinha — Software Engineer at Microsoft and recent UW–Madison graduate. Explore projects, experiences, and research.",
   keywords: [
     "Devaansh Sinha",
     "software engineer",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devaansh Sinha | Software Engineer",
     description:
-      "Explore projects and research by Devaansh Sinha, student at UW–Madison.",
+      "Explore projects and research by Devaansh Sinha, software engineer at Microsoft and recent UW–Madison graduate.",
     url: siteUrl,
     siteName: "Devaansh Sinha Portfolio",
     type: "website",

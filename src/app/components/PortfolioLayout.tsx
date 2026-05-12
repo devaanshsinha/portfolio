@@ -77,7 +77,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
             </Link>
           </h1>
           <p className="px-4 text-xs tracking-widest text-[var(--console-text-dim)] sm:text-sm">
-            SOFTWARE ENGINEER | GEMINI | UW MADISON
+            SOFTWARE ENGINEER | MICROSOFT | UW MADISON
           </p>
         </header>
 

@@ -7,7 +7,7 @@ import { ConsolePanel } from "./console/console-panel";
 import { aboutSummary } from "../data/profile";
 
 export default function AboutSection() {
-  const { paragraphs, resume, education } = aboutSummary;
+  const { paragraphs, resume, employment, education } = aboutSummary;
   const headshot = {
     src: "/images/headshot.jpeg",
     alt: "Headshot of Devaansh Sinha",
@@ -69,6 +69,30 @@ export default function AboutSection() {
 
       <ConsolePanel>
         <ConsoleHeading level={3} className="mb-3 text-xl sm:mb-4 sm:text-xl text-[var(--console-secondary)]">
+          Current Employment
+        </ConsoleHeading>
+        <div className="flex items-start gap-4">
+          <Image
+            src={employment.logoImage}
+            alt={employment.logoAlt}
+            width={96}
+            height={96}
+            className="h-16 w-16 flex-shrink-0 rounded border border-[var(--console-border)] bg-white p-2 object-contain sm:h-24 sm:w-24"
+          />
+          <div className="min-w-0 flex-1 space-y-2">
+            <h4 className="text-base font-semibold text-[var(--console-text)] sm:text-lg">
+              {employment.company}
+            </h4>
+            <p className="text-xs text-[var(--console-text-dim)] sm:text-sm">{employment.role}</p>
+            <p className="text-xs text-[var(--console-text-dim)] sm:text-sm">
+              {employment.team} | {employment.duration}
+            </p>
+          </div>
+        </div>
+      </ConsolePanel>
+
+      <ConsolePanel>
+        <ConsoleHeading level={3} className="mb-3 text-xl sm:mb-4 sm:text-xl text-[var(--console-secondary)]">
           Education
         </ConsoleHeading>
         <div className="flex items-start gap-4">
@@ -85,6 +109,7 @@ export default function AboutSection() {
             </h4>
             <p className="text-xs text-[var(--console-text-dim)] sm:text-sm">{education.program}</p>
             <p className="text-xs text-[var(--console-text-dim)] sm:text-sm">{education.duration}</p>
+            <p className="text-xs text-[var(--console-text-dim)] sm:text-sm">{education.gpa}</p>
             {education.achievements.map((achievement) => (
               <p key={achievement} className="text-xs text-[var(--console-text-dim)] sm:text-sm">
                 {achievement}
