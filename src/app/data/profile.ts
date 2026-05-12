@@ -105,12 +105,26 @@ export const aboutSummary = {
 
 export const experienceEntries: ExperienceEntry[] = [
   {
+    company: "Microsoft",
+    position: "Software Engineer",
+    location: "Redmond, WA",
+    duration: "May 2026 – Present",
+    achievements: [
+      "New Hire",
+      "Team: Azure Fabric OneLake Shortcuts",
+    ],
+    technologies: [
+      "Azure Fabric",
+      "OneLake Shortcuts",
+    ],
+  },
+  {
     company: "Gemini",
     position: "Software Developer / Software Engineering Intern",
     location: "New York, NY",
     periods: [
       {
-        duration: "Feb 26 – Feb 26",
+        duration: "Feb 2026 – Feb 2026",
         achievements: [
           "Worked on an internal full-stack admin platform using TypeScript, React, and Scala, strengthening error handling and improving system observability",
           "Added and refined gRPC service endpoints to surface operational metadata and streamline internal access to system state",
@@ -167,25 +181,6 @@ export const experienceEntries: ExperienceEntry[] = [
           "Agile",
         ],
       },
-    ],
-  },
-  {
-    company: "Nandi Travels",
-    position: "Full Stack Developer",
-    location: "Niles, IL",
-    duration: "May 2025 – Present",
-    achievements: [
-      "Designed and developed a production-grade full-stack platform using React, Node.js, and PostgreSQL, exposing RESTful microservices that support booking workflows and real-time updates for 1K+ monthly users",
-      "Built event-driven automation with AWS Lambda and Twilio to handle 200+ weekly booking and trip notifications, reducing manual operations and improving system reliability",
-    ],
-    technologies: [
-      "React",
-      "Node.js",
-      "PostgreSQL",
-      "REST APIs",
-      "AWS Lambda",
-      "Twilio",
-      "Event-Driven Architecture",
     ],
   },
   {
@@ -501,7 +496,7 @@ export const statusCards: StatusCard[] = [
   {
     title: "Work",
     description:
-      "Software Engineering Intern at Gemini\nOpen to new opportunities",
+      "Software Engineer at Microsoft\nAzure Fabric OneLake Shortcuts",
   },
 ];
 
