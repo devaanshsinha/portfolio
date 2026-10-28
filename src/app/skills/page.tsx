@@ -2,12 +2,12 @@ import PortfolioLayout from "../components/PortfolioLayout";
 import { ConsoleHeading } from "../components/console/console-heading";
 import { ConsolePanel } from "../components/console/console-panel";
 import { ConsoleTag } from "../components/console/console-tag";
-import { HiCode, HiCube, HiLightningBolt, HiShieldCheck } from "react-icons/hi";
+import { HiServer, HiTerminal, HiChip, HiCode } from "react-icons/hi";
 
 import { interestCards, skillCategories, skillHighlights } from "../data/profile";
 
 export default function Skills() {
-  const iconOrder = [HiCode, HiCube, HiShieldCheck, HiLightningBolt];
+  const iconOrder = [HiServer, HiTerminal, HiChip, HiCode];
 
   return (
     <PortfolioLayout>

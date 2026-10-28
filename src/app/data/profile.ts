@@ -38,11 +38,6 @@ export interface ExperienceEntry {
   technologies?: string[];
 }
 
-export interface ExperienceMetric {
-  value: string;
-  label: string;
-}
-
 export interface ProjectEntry {
   title: string;
   description: string;
@@ -51,16 +46,6 @@ export interface ProjectEntry {
   detailsLink?: string;
   ctaLabel?: string;
   isExternal?: boolean;
-}
-
-export interface ProjectCategoryCard {
-  title: string;
-  description: string;
-}
-
-export interface TechnicalHighlights {
-  technologies: string[];
-  practices: string[];
 }
 
 export interface SkillCategory {
@@ -129,12 +114,22 @@ export const experienceEntries: ExperienceEntry[] = [
     location: "Redmond, WA",
     duration: "May 2026 – Present",
     achievements: [
-      "New Hire",
-      "Team: Azure Fabric OneLake Shortcuts",
+      "Onboarded tier one enterprise partners and mirrored catalogs directly into OneLake across AWS, GCP, and Azure engines, while supporting connector integrations",
+      "Extended internal microservices and APIs with service-to-service (S2S) token exchange and resolved cache invalidation bottlenecks to ensure metadata consistency",
+      "Developed AI-driven developer tooling to automate SDLC workflows, accelerating team-wide testing, code reviews, and delivery cycles",
+      "Built automated integration and end-to-end test suites across heterogeneous cloud environments to validate end-to-end shortcut reliability",
     ],
     technologies: [
       "Azure Fabric",
       "OneLake Shortcuts",
+      "AWS",
+      "GCP",
+      "Azure",
+      "Microservices",
+      "APIs",
+      "Distributed Systems",
+      "AI Developer Tooling",
+      "Integration & E2E Testing",
     ],
   },
   {
@@ -220,12 +215,6 @@ export const experienceEntries: ExperienceEntry[] = [
       "Data Protection",
     ],
   },
-];
-
-export const experienceMetrics: ExperienceMetric[] = [
-  { value: "800+", label: "Remote employees served daily" },
-  { value: "500K+", label: "Loan applications secured" },
-  { value: "20%", label: "Reduction in data breaches" },
 ];
 
 export const projectEntries: ProjectEntry[] = [
@@ -323,43 +312,6 @@ export const projectEntries: ProjectEntry[] = [
   },
 ];
 
-export const projectCategoryCards: ProjectCategoryCard[] = [
-  {
-    title: "Healthcare Platform",
-    description:
-      "Medical data analytics, patient management, clinical insights",
-  },
-  {
-    title: "Full-Stack Applications",
-    description: "End-to-end web applications with modern frameworks",
-  },
-  {
-    title: "System Programming",
-    description: "Low-level C programming, file systems, shell development",
-  },
-  {
-    title: "Data Management Solutions",
-    description: "Database design, data processing, and management systems",
-  },
-];
-
-export const technicalHighlights: TechnicalHighlights = {
-  technologies: [
-    "Healthcare Analytics & Medical Data Processing",
-    "Blockchain & Web3 Development",
-    "Computer Vision (OpenCV) & OCR (Tesseract)",
-    "System-level Programming (C, FUSE)",
-    "Full-Stack Development (Next.js, React, FastAPI)",
-    "Database Design (PostgreSQL, Prisma)",
-  ],
-  practices: [
-    "Comprehensive testing (Unit & Manual)",
-    "Modern development workflows",
-    "Cross-platform compatibility",
-    "User-centered design principles",
-  ],
-};
-
 export const skillCategories: SkillCategory[] = [
   {
     category: "Languages",
@@ -439,44 +391,45 @@ export const skillCategories: SkillCategory[] = [
 
 export const skillHighlights: SkillHighlight[] = [
   {
-    title: "Scale & Impact",
+    title: "Systems & Scale",
     bullets: [
-      "Served 800+ remote employees daily",
-      "Enhanced security for 500,000+ loan applications",
-      "Managed 1,000+ database entries",
-      "Reduced data breaches by 20%",
+      "Mirrored enterprise partner catalogs into OneLake across AWS, GCP, and Azure",
+      "Built internal platform serving 800+ engineers, cutting 10+ weekly manual reporting hours",
+      "Redesigned backend microservices, boosting production monitoring efficiency by 70%",
+      "Engineered spam detection microservice safeguarding 500K+ loan applications (95% accuracy)",
     ],
   },
   {
-    title: "Key Achievements",
+    title: "Engineering & Tooling",
     bullets: [
-      "Saved 10+ hours of meeting time weekly",
-      "Built end-to-end full-stack applications",
-      "Optimized blockchain transaction monitoring",
-      "Implemented security and verification systems",
-      "Designed scalable database architectures",
+      "Implemented service-to-service (S2S) token exchange and distributed cache consistency",
+      "Built AI-driven developer tooling automating team testing, code reviews, and SDLC cycles",
+      "Developed automated integration and E2E test suites across multi-cloud environments",
+      "Shipped internal admin and observability tooling using TypeScript, React, Scala, and gRPC",
     ],
   },
 ];
 
 export const interestCards: InterestCard[] = [
   {
-    title: "Full-Stack Development",
-    description: "End-to-end application development with modern frameworks",
-  },
-  {
-    title: "Blockchain & Web3",
+    title: "Distributed Systems & Cloud",
     description:
-      "NFT platforms, transaction monitoring, and decentralized applications",
+      "Cross-cloud catalog integrations, microservices, and distributed data fabrics across Azure, AWS, and GCP",
   },
   {
-    title: "Security & Data Protection",
-    description: "Building secure systems and protecting user data",
-  },
-  {
-    title: "System Design & Scalability",
+    title: "Developer Tooling & Local AI",
     description:
-      "Designing systems that scale to hundreds of thousands of users",
+      "Local-first productivity tools, on-device vector search (RAG), and automated SDLC workflows",
+  },
+  {
+    title: "Systems Programming & OS",
+    description:
+      "Custom file systems (FUSE), Unix shells, low-level C engineering, and memory-efficient architectures",
+  },
+  {
+    title: "Backend & API Architecture",
+    description:
+      "High-throughput microservices, resilient data pipelines, and service-to-service auth systems",
   },
 ];
 
@@ -486,7 +439,7 @@ export const contactIntro =
 export const contactInfoCards: ContactCard[] = [
   { label: "Email", value: "sinhadevaansh@gmail.com" },
   { label: "Phone", value: "(608) 335-0973" },
-  { label: "Location", value: "Madison, WI" },
+  { label: "Location", value: "Seattle, WA" },
 ];
 
 export const contactLinks: ContactLink[] = [

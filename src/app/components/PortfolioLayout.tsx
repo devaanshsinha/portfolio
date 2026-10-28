@@ -66,17 +66,17 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen p-2 sm:p-4 md:p-8">
-      <div className="mx-auto max-w-7xl">
-        <header className="relative mb-4 text-center sm:mb-8">
-          <h1 className="mb-2 text-3xl font-bold tracking-wider sm:text-4xl md:text-6xl font-[var(--font-sans)]">
+    <div className="min-h-screen overflow-x-hidden p-1.5 sm:p-4 md:p-8">
+      <div className="mx-auto w-full max-w-7xl">
+        <header className="relative px-2 py-4 text-center sm:mb-8 sm:px-0 sm:py-0">
+          <h1 className="mb-1 text-2xl font-bold tracking-wider sm:mb-2 sm:text-4xl md:text-6xl font-[var(--font-sans)]">
             <Link href="/" className="inline-block transition-opacity hover:opacity-80">
               <span className="text-[var(--console-primary)]">DEVAANSH</span>
               <span className="text-[var(--console-secondary)]">.</span>
               <span className="text-[var(--console-accent)]">TECH</span>
             </Link>
           </h1>
-          <p className="px-4 text-xs tracking-widest text-[var(--console-text-dim)] sm:text-sm">
+          <p className="px-1 text-[0.65rem] tracking-[0.16em] text-[var(--console-text-dim)] sm:px-4 sm:text-sm sm:tracking-widest">
             SOFTWARE ENGINEER | MICROSOFT | UW MADISON
           </p>
         </header>
@@ -84,10 +84,10 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
         <ConsolePanel
           tone="light"
           padding="none"
-          className="overflow-hidden border-2 shadow-2xl"
+          className="w-full overflow-hidden border shadow-xl sm:border-2 sm:shadow-2xl"
           animateOnMount={false}
         >
-          <div className="flex items-center justify-between bg-[var(--console-border)] px-3 py-2 sm:px-4">
+          <div className="flex items-center justify-between bg-[var(--console-border)] px-2 py-1.5 sm:px-4 sm:py-2">
             <div className="flex items-center gap-2">
               {windowIndicators.map(({ color }) => (
                 <span key={color} className={`h-2.5 w-2.5 rounded-full sm:h-3 sm:w-3 ${color}`} />
@@ -112,7 +112,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
 
           {isMobileMenuOpen && (
             <div className="border-b border-[var(--console-border)] bg-[var(--console-bg)] lg:hidden">
-              <nav className="p-4">
+              <nav className="p-2 sm:p-4">
                 <ul className="space-y-2">
                   {menuItems.map((item) => {
                     const isActive = getActiveSection() === item.id;
@@ -183,8 +183,8 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
             </div>
           )}
 
-          <div className="p-3 sm:p-6 md:p-8">
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-4">
+          <div className="p-2 sm:p-6 md:p-8">
+            <div className="grid grid-cols-1 gap-2 sm:gap-6 lg:grid-cols-4">
               <nav className="hidden lg:block lg:col-span-1">
                 <ConsolePanel
                   tone="base"
@@ -262,7 +262,7 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
                   <ConsolePanel
                     tone="base"
                     padding="md"
-                    className="min-h-[400px] border border-[var(--console-border)]"
+                    className="min-h-0 border border-[var(--console-border)] sm:min-h-[400px]"
                     animateOnMount={false}
                   >
                   {children}

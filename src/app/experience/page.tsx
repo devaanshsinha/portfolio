@@ -2,7 +2,7 @@ import PortfolioLayout from '../components/PortfolioLayout';
 import { ConsoleHeading } from '../components/console/console-heading';
 import { ConsolePanel } from '../components/console/console-panel';
 import { ConsoleTag } from '../components/console/console-tag';
-import { experienceEntries, experienceMetrics } from '../data/profile';
+import { experienceEntries } from '../data/profile';
 
 function getPeriodYearLabel(duration: string) {
   const years = Array.from(new Set(duration.match(/\d{4}/g) ?? []));
@@ -115,20 +115,6 @@ export default function Experience() {
             </ConsolePanel>
           ))}
         </div>
-
-        <ConsolePanel>
-          <ConsoleHeading level={3} className="mb-4 text-lg text-[var(--console-secondary)]">
-            Impact Summary
-          </ConsoleHeading>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {experienceMetrics.map((metric) => (
-              <ConsolePanel key={metric.label} tone="base" padding="sm" className="text-center">
-                <div className="mb-2 text-2xl font-bold text-[var(--console-primary)]">{metric.value}</div>
-                <p className="text-sm text-[var(--console-text-dim)]">{metric.label}</p>
-              </ConsolePanel>
-            ))}
-          </div>
-        </ConsolePanel>
       </div>
     </PortfolioLayout>
   );

@@ -18,7 +18,7 @@ const panelVariants = cva(
       padding: {
         none: "",
         sm: "p-3",
-        md: "p-4 sm:p-6",
+        md: "p-3 sm:p-6",
         lg: "p-6 sm:p-8",
       },
       interactive: {
